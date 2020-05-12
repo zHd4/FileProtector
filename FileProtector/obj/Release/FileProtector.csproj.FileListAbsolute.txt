@@ -10,3 +10,4 @@ Z:\zHd4\cs_projects\FileProtector\FileProtector\bin\Release\FileProtector.exe.co
 Z:\zHd4\cs_projects\FileProtector\FileProtector\bin\Release\FileProtector.exe
 Z:\zHd4\cs_projects\FileProtector\FileProtector\obj\Release\FileProtector.exe
 Z:\zHd4\cs_projects\FileProtector\FileProtector\obj\Release\FileProtector.csprojAssemblyReference.cache
+Z:\zHd4\cs_projects\FileProtector\FileProtector\obj\Release\FileProtector.csproj.CoreCompileInputs.cache

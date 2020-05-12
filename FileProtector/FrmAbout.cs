@@ -30,7 +30,7 @@ namespace FileProtector
 
         private void tglink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Process.Start("https://t.me/DarkMorre");
+            Process.Start("https://t.me/zhd4official");
         }
 
         private void FrmAbout_MouseDown(object sender, MouseEventArgs e)
