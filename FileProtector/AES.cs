@@ -6,7 +6,7 @@ namespace FileProtector
 {
     class AES
     {
-        public static byte[] Encrypt(byte[] input, string pwd) // Функция шифрования AES32
+        public static byte[] Encrypt(byte[] input, string pwd)
         {
             RijndaelManaged AES = new RijndaelManaged();
             byte[] hash = new byte[32];
@@ -19,7 +19,7 @@ namespace FileProtector
             return DESEncrypter.TransformFinalBlock(input, 0, input.Length);
         }
 
-        public static byte[] Decrypt(byte[] input, string pwd) // Функция расшифровки AES32
+        public static byte[] Decrypt(byte[] input, string pwd)
         {
             RijndaelManaged AES = new RijndaelManaged();
             byte[] hash = new byte[32];

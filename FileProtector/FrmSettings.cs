@@ -23,7 +23,7 @@ namespace FileProtector
 
         public static string settingsPath = @"C:\ProgramData\FileProtector\settings";
 
-        public static void ChangeLocalSettings(int offset, string contents) // protectedEncryption(0), hideFiles(1)
+        public static void ChangeLocalSettings(int offset, string contents)
         {
             try
             {

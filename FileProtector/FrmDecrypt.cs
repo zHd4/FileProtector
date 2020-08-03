@@ -25,7 +25,7 @@ namespace FileProtector
             InitializeComponent();
         }
 
-        private void DisableAll() // Отключение всех компонентов окна
+        private void DisableAll()
         {
             dPATHFIELD.ReadOnly = true;
             dPASS.ReadOnly = true;
@@ -37,7 +37,7 @@ namespace FileProtector
             openSettings.Click -= new EventHandler(openSettings_Click);
         }
 
-        private void EnableAll() // Включение всех компонентов окна
+        private void EnableAll()
         {
             dPATHFIELD.ReadOnly = false;
             dPASS.ReadOnly = false;
@@ -52,13 +52,13 @@ namespace FileProtector
             _progress.Value = 0;
         }
 
-        private void AutoClear() // Очистка полей для ввода
+        private void AutoClear()
         {
             dPATHFIELD.Text = string.Empty;
             dPASS.Text = string.Empty;
         }
 
-        private void dBROWSE_Click(object sender, EventArgs e) // Окрытие окна обозревателя для выбора директории
+        private void dBROWSE_Click(object sender, EventArgs e)
         {
             using (var fbd = new FolderBrowserDialog())
             {
@@ -71,7 +71,7 @@ namespace FileProtector
             }
         }
 
-        private void dShow_CheckedChanged(object sender, EventArgs e) // Функция "Показать пароль"
+        private void dShow_CheckedChanged(object sender, EventArgs e)
         {
             if (dShow.Checked)
             {
@@ -83,13 +83,13 @@ namespace FileProtector
             }
         }
 
-        private void aboutButton_Click(object sender, EventArgs e) // Открытие окна "О программе"
+        private void aboutButton_Click(object sender, EventArgs e)
         {
             FrmAbout about = new FrmAbout();
             about.ShowDialog();
         }
 
-        private void dBUTTON_Click(object sender, EventArgs e) // Кнопка расшифровать
+        private void dBUTTON_Click(object sender, EventArgs e)
         {
             if (dPATHFIELD.Text != "" && dPATHFIELD.Text.Replace(" ", "").Length > 0)
             {
@@ -133,7 +133,7 @@ namespace FileProtector
             }
         }
 
-        private void FrmDecrypt_FormClosing(object sender, FormClosingEventArgs e) // Функция закрытие формы
+        private void FrmDecrypt_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (STATUS.Text == "-")
                 Environment.Exit(0);
@@ -141,14 +141,14 @@ namespace FileProtector
                 e.Cancel = true;
         }
 
-        private void openEncryptForm_Click(object sender, EventArgs e) // Открыть вкладку шифрования
+        private void openEncryptForm_Click(object sender, EventArgs e)
         {
             FrmEncrypt frmEncrypt = new FrmEncrypt();
             frmEncrypt.Show();
             Hide();
         }
 
-        private void decryptor_Tick(object sender, EventArgs e) // Таймер дешифрования
+        private void decryptor_Tick(object sender, EventArgs e)
         {
             STATUS.Text = currPath;
 

@@ -14,7 +14,7 @@ namespace FileProtector
 
         public static int result = 0;
 
-        public static bool EncryptFile(string path, string key) // Функция шифрования файла
+        public static bool EncryptFile(string path, string key)
         {
             try
             {
@@ -28,7 +28,7 @@ namespace FileProtector
             }
         }
 
-        public static bool DecryptFile(string path, string key, out bool wrongPassword) // Функция расшифровки файла
+        public static bool DecryptFile(string path, string key, out bool wrongPassword)
         {
             try
             {
@@ -50,7 +50,7 @@ namespace FileProtector
             }
         }
 
-        public static void Encrypt(string path, string key) // Основная функция шифрования дироктории (всего дерева) 
+        public static void Encrypt(string path, string key)
         {
             new Thread(() =>
             {
@@ -126,7 +126,7 @@ namespace FileProtector
             }).Start();
         }
 
-        public static void Decrypt(string path, string key) // Основная функция расшифровки дироктории (всего дерева) 
+        public static void Decrypt(string path, string key)
         {
             new Thread(() =>
             {
@@ -181,7 +181,7 @@ namespace FileProtector
             }).Start();
         }
 
-        private static void HideContent(string path) // Функция сокрытия содержимого дирктории
+        private static void HideContent(string path)
         {
             string[] files = Directory.GetFiles(path);
             string[] directories = Directory.GetDirectories(path);
@@ -198,7 +198,7 @@ namespace FileProtector
             }
         }
 
-        private static void ShowContent(string path) // Функция раскрытия содержимого дирктории
+        private static void ShowContent(string path)
         {
             try
             {
@@ -220,7 +220,7 @@ namespace FileProtector
             catch { }
         }
 
-        public static string PasswordRecovery(string path, string master_password) // Функция востановления пароля с помощью мастер-пароля
+        public static string PasswordRecovery(string path, string master_password)
         {
             if (File.Exists(Program.md5(path)))
             {
