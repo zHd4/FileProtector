@@ -4,12 +4,13 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>net6.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
-    <UseWPF>true</UseWPF>
-    <IsPublishable>False</IsPublishable>
-    <Description>Files encryption utility</Description>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <IsPublishable>True</IsPublishable>
+    <Title>FileProtector</Title>
+    <Description>Files encryption utiity</Description>
     <PackageProjectUrl>https://peew.info</PackageProjectUrl>
     <RepositoryUrl>https://github.com/zHd4/FileProtector</RepositoryUrl>
-    <NeutralLanguage>en-US</NeutralLanguage>
     <AssemblyVersion>2.3.0.0</AssemblyVersion>
     <FileVersion>2.3.0.0</FileVersion>
   </PropertyGroup>
