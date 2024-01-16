@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29728.190
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileProtector", "FileProtector\FileProtector.csproj", "{FC2ED114-C54C-4EBA-A8CF-DA62CB6FF40E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileProtector", "FileProtector\FileProtector.csproj", "{37F2E809-D734-486B-8F66-BCC4DBF72CD2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{FC2ED114-C54C-4EBA-A8CF-DA62CB6FF40E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FC2ED114-C54C-4EBA-A8CF-DA62CB6FF40E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FC2ED114-C54C-4EBA-A8CF-DA62CB6FF40E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FC2ED114-C54C-4EBA-A8CF-DA62CB6FF40E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37F2E809-D734-486B-8F66-BCC4DBF72CD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37F2E809-D734-486B-8F66-BCC4DBF72CD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37F2E809-D734-486B-8F66-BCC4DBF72CD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37F2E809-D734-486B-8F66-BCC4DBF72CD2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {BF5397D8-B065-4509-B7B7-D9334522C242}
+		SolutionGuid = {61CF16AB-CB90-4F89-9E69-FC3D4A7418D1}
 	EndGlobalSection
 EndGlobal
