@@ -2,7 +2,7 @@
 
 namespace FileProtector.Crypto
 {
-    public class AesProcessor
+    internal class AesProcessor
     {
         private readonly byte[] key;
         private readonly byte[] iv;
