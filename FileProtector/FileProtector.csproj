@@ -11,8 +11,8 @@
     <Description>Files encryption utiity</Description>
     <PackageProjectUrl>https://peew.info</PackageProjectUrl>
     <RepositoryUrl>https://github.com/zHd4/FileProtector</RepositoryUrl>
-    <AssemblyVersion>2.3.0.0</AssemblyVersion>
-    <FileVersion>2.3.0.0</FileVersion>
+    <AssemblyVersion>2.3</AssemblyVersion>
+    <FileVersion>2.3</FileVersion>
   </PropertyGroup>
 
 </Project>
