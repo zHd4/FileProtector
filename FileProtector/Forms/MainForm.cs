@@ -9,11 +9,16 @@ namespace FileProtector
         private static Color FieldsTextColor = Color.Black;
         private static Color FieldsPlaceholderColor = Color.DimGray;
 
+        private List<FormField> OperationsFormFields;
+
         public MainForm()
         {
             InitializeComponent();
             Text += " " + FetchVersion();
+
             MaximizeBox = false;
+            OperationsFormFields = GetFieldsList();
+
             SetFieldsPlaceholders();
         }
 
@@ -29,10 +34,10 @@ namespace FileProtector
 
         private void SetFieldsPlaceholders()
         {
-            foreach (FormField formField in GetFieldsList())
+            foreach (FormField formField in OperationsFormFields)
             {
                 TextBox field = formField.Field;
-                String placeholder = formField.Placeholder;
+                string placeholder = formField.Placeholder;
 
                 bool isPassword = formField.IsPassword;
                 field.ForeColor = FieldsPlaceholderColor;
@@ -43,7 +48,7 @@ namespace FileProtector
                         field.Text = "";
                         field.ForeColor = FieldsTextColor;
 
-                        if (isPassword)
+                        if (isPassword && PasswordIsHidden())
                         {
                             field.UseSystemPasswordChar = true;
                         }
@@ -56,13 +61,31 @@ namespace FileProtector
                         field.Text = placeholder;
                         field.ForeColor = FieldsPlaceholderColor;
 
-                        if (isPassword)
+                        if (isPassword && PasswordIsHidden())
                         {
                             field.UseSystemPasswordChar = false;
                         }
                     }
                 });
             }
+        }
+
+        private bool PasswordIsHidden()
+        {
+            return !ShowPasswordCheckBox.Checked;
+        }
+
+        private void ShowPasswordCheckedChanged(object sender, EventArgs e)
+        {
+            OperationsFormFields.Where(field => field.IsPassword)
+                .ToList()
+                .ForEach(field =>
+                {
+                    if (field.Field.Text != field.Placeholder)
+                    {
+                        field.Field.UseSystemPasswordChar = !ShowPasswordCheckBox.Checked;
+                    }
+                });
         }
 
         private string FetchVersion()

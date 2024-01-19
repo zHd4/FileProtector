@@ -76,6 +76,7 @@
             this.ShowPasswordCheckBox.TabIndex = 10;
             this.ShowPasswordCheckBox.Text = "Show password";
             this.ShowPasswordCheckBox.UseVisualStyleBackColor = true;
+            this.ShowPasswordCheckBox.CheckedChanged += new System.EventHandler(this.ShowPasswordCheckedChanged);
             // 
             // ConfirmPasswordTextBox
             // 
