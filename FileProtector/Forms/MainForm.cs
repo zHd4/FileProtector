@@ -1,3 +1,4 @@
+using FileProtector.Models;
 using System.Diagnostics;
 using System.Reflection;
 
@@ -16,25 +17,24 @@ namespace FileProtector
             SetFieldsPlaceholders();
         }
 
-        private List<TextBox> GetFieldsList()
+        private List<FormField> GetFieldsList()
         {
-            return new List<TextBox> 
+            return new List<FormField> 
             {
-                EncryptionPathTextBox, EncryptionPasswordTextBox, 
-                ConfirmEncryptionPasswordTextBox, DecryptionPathTextBox,
-                DecryptionPasswordTextBox
+                new FormField(PathTextBox, "Path"),
+                new FormField(PasswordTextBox, "Password", true),
+                new FormField(ConfirmPasswordTextBox, "Confirm password", true)
             };
         }
 
         private void SetFieldsPlaceholders()
         {
-            Dictionary<TextBox, string> filedsPlaceholders = new Dictionary<TextBox, string>();
-
-            foreach (TextBox field in GetFieldsList())
+            foreach (FormField formField in GetFieldsList())
             {
-                string placeholder = field.Text;
+                TextBox field = formField.Field;
+                String placeholder = formField.Placeholder;
 
-                filedsPlaceholders.Add(field, placeholder);
+                bool isPassword = formField.IsPassword;
                 field.ForeColor = FieldsPlaceholderColor;
 
                 field.Enter += new EventHandler((sender, e) => {
@@ -42,14 +42,24 @@ namespace FileProtector
                     {
                         field.Text = "";
                         field.ForeColor = FieldsTextColor;
+
+                        if (isPassword)
+                        {
+                            field.UseSystemPasswordChar = true;
+                        }
                     }
                 });
 
                 field.Leave += new EventHandler((sender, e) => {
                     if (field.Text == "")
                     {
-                        field.Text = filedsPlaceholders[field];
+                        field.Text = placeholder;
                         field.ForeColor = FieldsPlaceholderColor;
+
+                        if (isPassword)
+                        {
+                            field.UseSystemPasswordChar = false;
+                        }
                     }
                 });
             }
