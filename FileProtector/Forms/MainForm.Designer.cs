@@ -53,7 +53,7 @@
             // 
             this.AppTabsControl.Controls.Add(this.EncryptionTabPage);
             this.AppTabsControl.Controls.Add(this.DecryptionTabPage);
-            this.AppTabsControl.Location = new System.Drawing.Point(0, 0);
+            this.AppTabsControl.Location = new System.Drawing.Point(2, 0);
             this.AppTabsControl.Name = "AppTabsControl";
             this.AppTabsControl.SelectedIndex = 0;
             this.AppTabsControl.Size = new System.Drawing.Size(352, 179);
@@ -121,6 +121,7 @@
             // 
             // EncryptionPathTextBox
             // 
+            this.EncryptionPathTextBox.ForeColor = System.Drawing.SystemColors.WindowText;
             this.EncryptionPathTextBox.Location = new System.Drawing.Point(8, 6);
             this.EncryptionPathTextBox.Name = "EncryptionPathTextBox";
             this.EncryptionPathTextBox.Size = new System.Drawing.Size(251, 23);
@@ -190,7 +191,7 @@
             // 
             this.MainProgressBar.Location = new System.Drawing.Point(2, 181);
             this.MainProgressBar.Name = "MainProgressBar";
-            this.MainProgressBar.Size = new System.Drawing.Size(350, 23);
+            this.MainProgressBar.Size = new System.Drawing.Size(352, 23);
             this.MainProgressBar.TabIndex = 1;
             // 
             // MainStatusLabel
@@ -206,7 +207,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(354, 229);
+            this.ClientSize = new System.Drawing.Size(356, 229);
             this.Controls.Add(this.MainStatusLabel);
             this.Controls.Add(this.MainProgressBar);
             this.Controls.Add(this.AppTabsControl);
