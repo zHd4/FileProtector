@@ -45,10 +45,14 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.WindowControlPanel = new System.Windows.Forms.Panel();
+            this.WindowNameLabel = new System.Windows.Forms.Label();
+            this.CloseButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.WindowControlPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // ProceedButton
@@ -106,7 +110,7 @@
             this.BrowseButton.FlatAppearance.BorderSize = 0;
             this.BrowseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BrowseButton.ForeColor = System.Drawing.Color.White;
-            this.BrowseButton.Location = new System.Drawing.Point(87, 148);
+            this.BrowseButton.Location = new System.Drawing.Point(87, 184);
             this.BrowseButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.BrowseButton.Name = "BrowseButton";
             this.BrowseButton.Size = new System.Drawing.Size(122, 37);
@@ -118,7 +122,7 @@
             // 
             this.EncryptRadioButton.AutoSize = true;
             this.EncryptRadioButton.Checked = true;
-            this.EncryptRadioButton.Location = new System.Drawing.Point(161, 484);
+            this.EncryptRadioButton.Location = new System.Drawing.Point(161, 489);
             this.EncryptRadioButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.EncryptRadioButton.Name = "EncryptRadioButton";
             this.EncryptRadioButton.Size = new System.Drawing.Size(76, 22);
@@ -130,7 +134,7 @@
             // DecryptRadioButton
             // 
             this.DecryptRadioButton.AutoSize = true;
-            this.DecryptRadioButton.Location = new System.Drawing.Point(254, 484);
+            this.DecryptRadioButton.Location = new System.Drawing.Point(254, 489);
             this.DecryptRadioButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.DecryptRadioButton.Name = "DecryptRadioButton";
             this.DecryptRadioButton.Size = new System.Drawing.Size(77, 22);
@@ -142,7 +146,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(101, 80);
+            this.label1.Location = new System.Drawing.Point(101, 116);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(92, 31);
             this.label1.TabIndex = 15;
@@ -152,7 +156,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(71, 118);
+            this.label2.Location = new System.Drawing.Point(71, 154);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(160, 17);
             this.label2.TabIndex = 16;
@@ -162,7 +166,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(652, 183);
+            this.label3.Location = new System.Drawing.Point(652, 195);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(106, 17);
             this.label3.TabIndex = 18;
@@ -172,7 +176,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(657, 145);
+            this.label4.Location = new System.Drawing.Point(657, 157);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(92, 31);
             this.label4.TabIndex = 17;
@@ -182,7 +186,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(174, 452);
+            this.label5.Location = new System.Drawing.Point(174, 463);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(142, 17);
             this.label5.TabIndex = 20;
@@ -192,7 +196,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(201, 417);
+            this.label6.Location = new System.Drawing.Point(201, 428);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(92, 31);
             this.label6.TabIndex = 19;
@@ -236,6 +240,41 @@
             this.panel4.Size = new System.Drawing.Size(256, 21);
             this.panel4.TabIndex = 22;
             // 
+            // WindowControlPanel
+            // 
+            this.WindowControlPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(38)))), ((int)(((byte)(86)))));
+            this.WindowControlPanel.Controls.Add(this.CloseButton);
+            this.WindowControlPanel.Controls.Add(this.WindowNameLabel);
+            this.WindowControlPanel.Location = new System.Drawing.Point(0, 0);
+            this.WindowControlPanel.Name = "WindowControlPanel";
+            this.WindowControlPanel.Size = new System.Drawing.Size(900, 35);
+            this.WindowControlPanel.TabIndex = 23;
+            // 
+            // WindowNameLabel
+            // 
+            this.WindowNameLabel.AutoSize = true;
+            this.WindowNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.WindowNameLabel.Location = new System.Drawing.Point(3, 5);
+            this.WindowNameLabel.Name = "WindowNameLabel";
+            this.WindowNameLabel.Size = new System.Drawing.Size(121, 25);
+            this.WindowNameLabel.TabIndex = 16;
+            this.WindowNameLabel.Text = "FileProtector";
+            // 
+            // CloseButton
+            // 
+            this.CloseButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(38)))), ((int)(((byte)(86)))));
+            this.CloseButton.FlatAppearance.BorderSize = 0;
+            this.CloseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CloseButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
+            this.CloseButton.Location = new System.Drawing.Point(865, 0);
+            this.CloseButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.CloseButton.Name = "CloseButton";
+            this.CloseButton.Size = new System.Drawing.Size(35, 35);
+            this.CloseButton.TabIndex = 24;
+            this.CloseButton.Text = "✖";
+            this.CloseButton.UseVisualStyleBackColor = false;
+            this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -244,6 +283,7 @@
             this.BackgroundImage = global::FileProtector.Properties.Resources.background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(900, 650);
+            this.Controls.Add(this.WindowControlPanel);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label5);
@@ -271,6 +311,8 @@
             this.panel3.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            this.WindowControlPanel.ResumeLayout(false);
+            this.WindowControlPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -294,5 +336,8 @@
         private Panel panel2;
         private Panel panel3;
         private Panel panel4;
+        private Panel WindowControlPanel;
+        private Label WindowNameLabel;
+        private Button CloseButton;
     }
 }
