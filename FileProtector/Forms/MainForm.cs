@@ -1,12 +1,22 @@
 using FileProtector.Models;
 using System.Diagnostics;
 using System.Reflection;
+using System.Runtime.InteropServices;
 
 namespace FileProtector
 {
     public partial class MainForm : Form
     {
-        private static Color FieldsTextColor = Color.Black;
+        [DllImport("user32.dll")]
+        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+
+        [DllImport("user32.dll")]
+        public static extern bool ReleaseCapture();
+
+        public const int WM_NCLBUTTONDOWN = 0xA1;
+        public const int HT_CAPTION = 0x2;
+
+        private static Color FieldsTextColor = Color.White;
         private static Color FieldsPlaceholderColor = Color.DimGray;
 
         private List<FormField> OperationsFormFields;
@@ -26,7 +36,6 @@ namespace FileProtector
         {
             return new List<FormField> 
             {
-                new FormField(PathTextBox, "Path"),
                 new FormField(PasswordTextBox, "Password", true),
                 new FormField(ConfirmPasswordTextBox, "Confirm password", true)
             };
@@ -70,6 +79,15 @@ namespace FileProtector
             }
         }
 
+        private void OnFormMouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
+        }
+
         private bool PasswordIsHidden()
         {
             return !ShowPasswordCheckBox.Checked;
@@ -94,6 +112,11 @@ namespace FileProtector
             FileVersionInfo info = FileVersionInfo.GetVersionInfo(assembly.Location);
 
             return info.FileVersion ?? throw new NullReferenceException();
+        }
+
+        private void MainForm_MouseDown(object sender, MouseEventArgs e)
+        {
+            OnFormMouseDown(sender, e);
         }
     }
 }
