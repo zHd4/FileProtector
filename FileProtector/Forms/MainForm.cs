@@ -79,7 +79,7 @@ namespace FileProtector
             }
         }
 
-        private void OnFormMouseDown(object sender, MouseEventArgs e)
+        private void MoveForm(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
@@ -116,12 +116,27 @@ namespace FileProtector
 
         private void MainForm_MouseDown(object sender, MouseEventArgs e)
         {
-            OnFormMouseDown(sender, e);
+            MoveForm(sender, e);
+        }
+
+        private void WindowControlPanel_MouseDown(object sender, MouseEventArgs e)
+        {
+            MoveForm(sender, e);
+        }
+
+        private void WindowNameLabel_MouseDown(object sender, MouseEventArgs e)
+        {
+            MoveForm(sender, e);
         }
 
         private void CloseButton_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void MinimizeButton_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
         }
     }
 }

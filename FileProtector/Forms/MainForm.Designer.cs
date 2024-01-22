@@ -46,8 +46,9 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.WindowControlPanel = new System.Windows.Forms.Panel();
-            this.WindowNameLabel = new System.Windows.Forms.Label();
             this.CloseButton = new System.Windows.Forms.Button();
+            this.WindowNameLabel = new System.Windows.Forms.Label();
+            this.MinimizeButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -243,12 +244,29 @@
             // WindowControlPanel
             // 
             this.WindowControlPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(38)))), ((int)(((byte)(86)))));
+            this.WindowControlPanel.Controls.Add(this.MinimizeButton);
             this.WindowControlPanel.Controls.Add(this.CloseButton);
             this.WindowControlPanel.Controls.Add(this.WindowNameLabel);
             this.WindowControlPanel.Location = new System.Drawing.Point(0, 0);
             this.WindowControlPanel.Name = "WindowControlPanel";
             this.WindowControlPanel.Size = new System.Drawing.Size(900, 35);
             this.WindowControlPanel.TabIndex = 23;
+            this.WindowControlPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.WindowControlPanel_MouseDown);
+            // 
+            // CloseButton
+            // 
+            this.CloseButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(38)))), ((int)(((byte)(86)))));
+            this.CloseButton.BackgroundImage = global::FileProtector.Properties.Resources.close_button;
+            this.CloseButton.FlatAppearance.BorderSize = 0;
+            this.CloseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CloseButton.ForeColor = System.Drawing.Color.White;
+            this.CloseButton.Location = new System.Drawing.Point(865, 0);
+            this.CloseButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.CloseButton.Name = "CloseButton";
+            this.CloseButton.Size = new System.Drawing.Size(35, 35);
+            this.CloseButton.TabIndex = 24;
+            this.CloseButton.UseVisualStyleBackColor = false;
+            this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
             // 
             // WindowNameLabel
             // 
@@ -259,21 +277,22 @@
             this.WindowNameLabel.Size = new System.Drawing.Size(121, 25);
             this.WindowNameLabel.TabIndex = 16;
             this.WindowNameLabel.Text = "FileProtector";
+            this.WindowNameLabel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.WindowNameLabel_MouseDown);
             // 
-            // CloseButton
+            // MinimizeButton
             // 
-            this.CloseButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(38)))), ((int)(((byte)(86)))));
-            this.CloseButton.FlatAppearance.BorderSize = 0;
-            this.CloseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CloseButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
-            this.CloseButton.Location = new System.Drawing.Point(865, 0);
-            this.CloseButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.CloseButton.Name = "CloseButton";
-            this.CloseButton.Size = new System.Drawing.Size(35, 35);
-            this.CloseButton.TabIndex = 24;
-            this.CloseButton.Text = "✖";
-            this.CloseButton.UseVisualStyleBackColor = false;
-            this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
+            this.MinimizeButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(38)))), ((int)(((byte)(86)))));
+            this.MinimizeButton.BackgroundImage = global::FileProtector.Properties.Resources.minimize_button;
+            this.MinimizeButton.FlatAppearance.BorderSize = 0;
+            this.MinimizeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MinimizeButton.ForeColor = System.Drawing.Color.White;
+            this.MinimizeButton.Location = new System.Drawing.Point(830, 0);
+            this.MinimizeButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.MinimizeButton.Name = "MinimizeButton";
+            this.MinimizeButton.Size = new System.Drawing.Size(35, 35);
+            this.MinimizeButton.TabIndex = 25;
+            this.MinimizeButton.UseVisualStyleBackColor = false;
+            this.MinimizeButton.Click += new System.EventHandler(this.MinimizeButton_Click);
             // 
             // MainForm
             // 
@@ -339,5 +358,6 @@
         private Panel WindowControlPanel;
         private Label WindowNameLabel;
         private Button CloseButton;
+        private Button MinimizeButton;
     }
 }
