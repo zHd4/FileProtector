@@ -1,3 +1,4 @@
+using FileProtector.Model;
 using FileProtector.Models;
 using System.Diagnostics;
 using System.Reflection;
@@ -20,6 +21,8 @@ namespace FileProtector
         private static Color FieldsPlaceholderColor = Color.DimGray;
 
         private List<FormField> OperationsFormFields;
+        private Point ShowPasswordCheckBoxOriginalLoacation;
+        private TransformationMode CurrentMode = TransformationMode.Encrypt;
 
         public MainForm()
         {
@@ -29,6 +32,7 @@ namespace FileProtector
             MaximizeBox = false;
             OperationsFormFields = GetFieldsList();
 
+            ShowPasswordCheckBoxOriginalLoacation = GetShowPasswordCheckBoxLocation();
             SetFieldsPlaceholders();
         }
 
@@ -114,6 +118,12 @@ namespace FileProtector
             return info.FileVersion ?? throw new NullReferenceException();
         }
 
+        private Point GetShowPasswordCheckBoxLocation()
+        {
+            Point location = ShowPasswordCheckBox.Location;
+            return new Point(location.X, location.Y);
+        }
+
         private void MainForm_MouseDown(object sender, MouseEventArgs e)
         {
             MoveForm(sender, e);
@@ -137,6 +147,28 @@ namespace FileProtector
         private void MinimizeButton_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
+        }
+
+        private void EncryptRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            CurrentMode = TransformationMode.Encrypt;
+            ShowPasswordCheckBox.Location = ShowPasswordCheckBoxOriginalLoacation;
+
+            ConfirmPasswordTextBoxExternalContainer.Enabled = true;
+            ConfirmPasswordTextBoxExternalContainer.Visible = true;
+
+            ProceedButton.Text = "Encrypt!";
+        }
+
+        private void DecryptRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            CurrentMode = TransformationMode.Decrypt;
+
+            ConfirmPasswordTextBoxExternalContainer.Enabled = false;
+            ConfirmPasswordTextBoxExternalContainer.Visible = false;
+
+            ShowPasswordCheckBox.Location = ConfirmPasswordTextBoxExternalContainer.Location;
+            ProceedButton.Text = "Decrypt!";
         }
     }
 }

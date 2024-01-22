@@ -35,24 +35,24 @@
             this.BrowseButton = new System.Windows.Forms.Button();
             this.EncryptRadioButton = new System.Windows.Forms.RadioButton();
             this.DecryptRadioButton = new System.Windows.Forms.RadioButton();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.Step1Label = new System.Windows.Forms.Label();
+            this.Step1DescriptionLabel = new System.Windows.Forms.Label();
+            this.Step2DescriptionLabel = new System.Windows.Forms.Label();
+            this.Step2Label = new System.Windows.Forms.Label();
+            this.Step3DescriptionLabel = new System.Windows.Forms.Label();
+            this.Step3Label = new System.Windows.Forms.Label();
+            this.PasswordTextBoxExternalContainer = new System.Windows.Forms.Panel();
+            this.PasswordTextBoxInternalContainer = new System.Windows.Forms.Panel();
+            this.ConfirmPasswordTextBoxExternalContainer = new System.Windows.Forms.Panel();
+            this.ConfirmPasswordTextBoxInternalContainer = new System.Windows.Forms.Panel();
             this.WindowControlPanel = new System.Windows.Forms.Panel();
+            this.MinimizeButton = new System.Windows.Forms.Button();
             this.CloseButton = new System.Windows.Forms.Button();
             this.WindowNameLabel = new System.Windows.Forms.Label();
-            this.MinimizeButton = new System.Windows.Forms.Button();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.panel4.SuspendLayout();
+            this.PasswordTextBoxExternalContainer.SuspendLayout();
+            this.PasswordTextBoxInternalContainer.SuspendLayout();
+            this.ConfirmPasswordTextBoxExternalContainer.SuspendLayout();
+            this.ConfirmPasswordTextBoxInternalContainer.SuspendLayout();
             this.WindowControlPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,12 +61,13 @@
             this.ProceedButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(38)))), ((int)(((byte)(86)))));
             this.ProceedButton.FlatAppearance.BorderSize = 0;
             this.ProceedButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ProceedButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.ProceedButton.Location = new System.Drawing.Point(177, 524);
             this.ProceedButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ProceedButton.Name = "ProceedButton";
             this.ProceedButton.Size = new System.Drawing.Size(138, 57);
             this.ProceedButton.TabIndex = 11;
-            this.ProceedButton.Text = "Encrypt";
+            this.ProceedButton.Text = "Encrypt!";
             this.ProceedButton.UseVisualStyleBackColor = false;
             // 
             // ShowPasswordCheckBox
@@ -131,6 +132,7 @@
             this.EncryptRadioButton.TabStop = true;
             this.EncryptRadioButton.Text = "Encrypt";
             this.EncryptRadioButton.UseVisualStyleBackColor = true;
+            this.EncryptRadioButton.CheckedChanged += new System.EventHandler(this.EncryptRadioButton_CheckedChanged);
             // 
             // DecryptRadioButton
             // 
@@ -142,104 +144,105 @@
             this.DecryptRadioButton.TabIndex = 13;
             this.DecryptRadioButton.Text = "Decrypt";
             this.DecryptRadioButton.UseVisualStyleBackColor = true;
+            this.DecryptRadioButton.CheckedChanged += new System.EventHandler(this.DecryptRadioButton_CheckedChanged);
             // 
-            // label1
+            // Step1Label
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(101, 116);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(92, 31);
-            this.label1.TabIndex = 15;
-            this.label1.Text = "Step 1";
+            this.Step1Label.AutoSize = true;
+            this.Step1Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Step1Label.Location = new System.Drawing.Point(101, 116);
+            this.Step1Label.Name = "Step1Label";
+            this.Step1Label.Size = new System.Drawing.Size(92, 31);
+            this.Step1Label.TabIndex = 15;
+            this.Step1Label.Text = "Step 1";
             // 
-            // label2
+            // Step1DescriptionLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(71, 154);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(160, 17);
-            this.label2.TabIndex = 16;
-            this.label2.Text = "Select file(s) or folder(s)";
+            this.Step1DescriptionLabel.AutoSize = true;
+            this.Step1DescriptionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Step1DescriptionLabel.Location = new System.Drawing.Point(71, 154);
+            this.Step1DescriptionLabel.Name = "Step1DescriptionLabel";
+            this.Step1DescriptionLabel.Size = new System.Drawing.Size(160, 17);
+            this.Step1DescriptionLabel.TabIndex = 16;
+            this.Step1DescriptionLabel.Text = "Select file(s) or folder(s)";
             // 
-            // label3
+            // Step2DescriptionLabel
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(652, 195);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(106, 17);
-            this.label3.TabIndex = 18;
-            this.label3.Text = "Enter password";
+            this.Step2DescriptionLabel.AutoSize = true;
+            this.Step2DescriptionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Step2DescriptionLabel.Location = new System.Drawing.Point(652, 195);
+            this.Step2DescriptionLabel.Name = "Step2DescriptionLabel";
+            this.Step2DescriptionLabel.Size = new System.Drawing.Size(106, 17);
+            this.Step2DescriptionLabel.TabIndex = 18;
+            this.Step2DescriptionLabel.Text = "Enter password";
             // 
-            // label4
+            // Step2Label
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(657, 157);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(92, 31);
-            this.label4.TabIndex = 17;
-            this.label4.Text = "Step 2";
+            this.Step2Label.AutoSize = true;
+            this.Step2Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Step2Label.Location = new System.Drawing.Point(657, 157);
+            this.Step2Label.Name = "Step2Label";
+            this.Step2Label.Size = new System.Drawing.Size(92, 31);
+            this.Step2Label.TabIndex = 17;
+            this.Step2Label.Text = "Step 2";
             // 
-            // label5
+            // Step3DescriptionLabel
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(174, 463);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(142, 17);
-            this.label5.TabIndex = 20;
-            this.label5.Text = "Select mode and run!";
+            this.Step3DescriptionLabel.AutoSize = true;
+            this.Step3DescriptionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Step3DescriptionLabel.Location = new System.Drawing.Point(174, 463);
+            this.Step3DescriptionLabel.Name = "Step3DescriptionLabel";
+            this.Step3DescriptionLabel.Size = new System.Drawing.Size(142, 17);
+            this.Step3DescriptionLabel.TabIndex = 20;
+            this.Step3DescriptionLabel.Text = "Select mode and run!";
             // 
-            // label6
+            // Step3Label
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(201, 428);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(92, 31);
-            this.label6.TabIndex = 19;
-            this.label6.Text = "Step 3";
+            this.Step3Label.AutoSize = true;
+            this.Step3Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Step3Label.Location = new System.Drawing.Point(201, 428);
+            this.Step3Label.Name = "Step3Label";
+            this.Step3Label.Size = new System.Drawing.Size(92, 31);
+            this.Step3Label.TabIndex = 19;
+            this.Step3Label.Text = "Step 3";
             // 
-            // panel1
+            // PasswordTextBoxExternalContainer
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(38)))), ((int)(((byte)(86)))));
-            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.panel1.Controls.Add(this.panel2);
-            this.panel1.Location = new System.Drawing.Point(577, 220);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(258, 23);
-            this.panel1.TabIndex = 21;
+            this.PasswordTextBoxExternalContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(38)))), ((int)(((byte)(86)))));
+            this.PasswordTextBoxExternalContainer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.PasswordTextBoxExternalContainer.Controls.Add(this.PasswordTextBoxInternalContainer);
+            this.PasswordTextBoxExternalContainer.Location = new System.Drawing.Point(577, 220);
+            this.PasswordTextBoxExternalContainer.Name = "PasswordTextBoxExternalContainer";
+            this.PasswordTextBoxExternalContainer.Size = new System.Drawing.Size(258, 23);
+            this.PasswordTextBoxExternalContainer.TabIndex = 21;
             // 
-            // panel2
+            // PasswordTextBoxInternalContainer
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(16)))), ((int)(((byte)(41)))));
-            this.panel2.Controls.Add(this.PasswordTextBox);
-            this.panel2.Location = new System.Drawing.Point(1, 1);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(256, 21);
-            this.panel2.TabIndex = 22;
+            this.PasswordTextBoxInternalContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(16)))), ((int)(((byte)(41)))));
+            this.PasswordTextBoxInternalContainer.Controls.Add(this.PasswordTextBox);
+            this.PasswordTextBoxInternalContainer.Location = new System.Drawing.Point(1, 1);
+            this.PasswordTextBoxInternalContainer.Name = "PasswordTextBoxInternalContainer";
+            this.PasswordTextBoxInternalContainer.Size = new System.Drawing.Size(256, 21);
+            this.PasswordTextBoxInternalContainer.TabIndex = 22;
             // 
-            // panel3
+            // ConfirmPasswordTextBoxExternalContainer
             // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(38)))), ((int)(((byte)(86)))));
-            this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.panel3.Controls.Add(this.panel4);
-            this.panel3.Location = new System.Drawing.Point(577, 249);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(258, 23);
-            this.panel3.TabIndex = 22;
+            this.ConfirmPasswordTextBoxExternalContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(38)))), ((int)(((byte)(86)))));
+            this.ConfirmPasswordTextBoxExternalContainer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ConfirmPasswordTextBoxExternalContainer.Controls.Add(this.ConfirmPasswordTextBoxInternalContainer);
+            this.ConfirmPasswordTextBoxExternalContainer.Location = new System.Drawing.Point(577, 249);
+            this.ConfirmPasswordTextBoxExternalContainer.Name = "ConfirmPasswordTextBoxExternalContainer";
+            this.ConfirmPasswordTextBoxExternalContainer.Size = new System.Drawing.Size(258, 23);
+            this.ConfirmPasswordTextBoxExternalContainer.TabIndex = 22;
             // 
-            // panel4
+            // ConfirmPasswordTextBoxInternalContainer
             // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(16)))), ((int)(((byte)(41)))));
-            this.panel4.Controls.Add(this.ConfirmPasswordTextBox);
-            this.panel4.Location = new System.Drawing.Point(1, 1);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(256, 21);
-            this.panel4.TabIndex = 22;
+            this.ConfirmPasswordTextBoxInternalContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(16)))), ((int)(((byte)(41)))));
+            this.ConfirmPasswordTextBoxInternalContainer.Controls.Add(this.ConfirmPasswordTextBox);
+            this.ConfirmPasswordTextBoxInternalContainer.Location = new System.Drawing.Point(1, 1);
+            this.ConfirmPasswordTextBoxInternalContainer.Name = "ConfirmPasswordTextBoxInternalContainer";
+            this.ConfirmPasswordTextBoxInternalContainer.Size = new System.Drawing.Size(256, 21);
+            this.ConfirmPasswordTextBoxInternalContainer.TabIndex = 22;
             // 
             // WindowControlPanel
             // 
@@ -252,6 +255,21 @@
             this.WindowControlPanel.Size = new System.Drawing.Size(900, 35);
             this.WindowControlPanel.TabIndex = 23;
             this.WindowControlPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.WindowControlPanel_MouseDown);
+            // 
+            // MinimizeButton
+            // 
+            this.MinimizeButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(38)))), ((int)(((byte)(86)))));
+            this.MinimizeButton.BackgroundImage = global::FileProtector.Properties.Resources.minimize_button;
+            this.MinimizeButton.FlatAppearance.BorderSize = 0;
+            this.MinimizeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MinimizeButton.ForeColor = System.Drawing.Color.White;
+            this.MinimizeButton.Location = new System.Drawing.Point(830, 0);
+            this.MinimizeButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.MinimizeButton.Name = "MinimizeButton";
+            this.MinimizeButton.Size = new System.Drawing.Size(35, 35);
+            this.MinimizeButton.TabIndex = 25;
+            this.MinimizeButton.UseVisualStyleBackColor = false;
+            this.MinimizeButton.Click += new System.EventHandler(this.MinimizeButton_Click);
             // 
             // CloseButton
             // 
@@ -279,21 +297,6 @@
             this.WindowNameLabel.Text = "FileProtector";
             this.WindowNameLabel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.WindowNameLabel_MouseDown);
             // 
-            // MinimizeButton
-            // 
-            this.MinimizeButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(38)))), ((int)(((byte)(86)))));
-            this.MinimizeButton.BackgroundImage = global::FileProtector.Properties.Resources.minimize_button;
-            this.MinimizeButton.FlatAppearance.BorderSize = 0;
-            this.MinimizeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MinimizeButton.ForeColor = System.Drawing.Color.White;
-            this.MinimizeButton.Location = new System.Drawing.Point(830, 0);
-            this.MinimizeButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.MinimizeButton.Name = "MinimizeButton";
-            this.MinimizeButton.Size = new System.Drawing.Size(35, 35);
-            this.MinimizeButton.TabIndex = 25;
-            this.MinimizeButton.UseVisualStyleBackColor = false;
-            this.MinimizeButton.Click += new System.EventHandler(this.MinimizeButton_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -303,18 +306,18 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(900, 650);
             this.Controls.Add(this.WindowControlPanel);
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.label5);
+            this.Controls.Add(this.ConfirmPasswordTextBoxExternalContainer);
+            this.Controls.Add(this.PasswordTextBoxExternalContainer);
+            this.Controls.Add(this.Step3DescriptionLabel);
             this.Controls.Add(this.ProceedButton);
             this.Controls.Add(this.DecryptRadioButton);
             this.Controls.Add(this.EncryptRadioButton);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.Step3Label);
+            this.Controls.Add(this.Step2DescriptionLabel);
+            this.Controls.Add(this.Step2Label);
+            this.Controls.Add(this.Step1DescriptionLabel);
             this.Controls.Add(this.ShowPasswordCheckBox);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.Step1Label);
             this.Controls.Add(this.BrowseButton);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ForeColor = System.Drawing.Color.White;
@@ -324,12 +327,12 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FileProtector";
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseDown);
-            this.panel1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
+            this.PasswordTextBoxExternalContainer.ResumeLayout(false);
+            this.PasswordTextBoxInternalContainer.ResumeLayout(false);
+            this.PasswordTextBoxInternalContainer.PerformLayout();
+            this.ConfirmPasswordTextBoxExternalContainer.ResumeLayout(false);
+            this.ConfirmPasswordTextBoxInternalContainer.ResumeLayout(false);
+            this.ConfirmPasswordTextBoxInternalContainer.PerformLayout();
             this.WindowControlPanel.ResumeLayout(false);
             this.WindowControlPanel.PerformLayout();
             this.ResumeLayout(false);
@@ -345,16 +348,16 @@
         private Button BrowseButton;
         private RadioButton EncryptRadioButton;
         private RadioButton DecryptRadioButton;
-        private Label label1;
-        private Label label2;
-        private Label label3;
-        private Label label4;
-        private Label label5;
-        private Label label6;
-        private Panel panel1;
-        private Panel panel2;
-        private Panel panel3;
-        private Panel panel4;
+        private Label Step1Label;
+        private Label Step1DescriptionLabel;
+        private Label Step2DescriptionLabel;
+        private Label Step2Label;
+        private Label Step3DescriptionLabel;
+        private Label Step3Label;
+        private Panel PasswordTextBoxExternalContainer;
+        private Panel PasswordTextBoxInternalContainer;
+        private Panel ConfirmPasswordTextBoxExternalContainer;
+        private Panel ConfirmPasswordTextBoxInternalContainer;
         private Panel WindowControlPanel;
         private Label WindowNameLabel;
         private Button CloseButton;
