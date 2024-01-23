@@ -2,12 +2,12 @@
 
 namespace FileProtector.Crypto
 {
-    internal class AesProcessor
+    internal class AesCryptor
     {
         private readonly byte[] key;
         private readonly byte[] iv;
 
-        public AesProcessor(byte[] key, byte[] iv) 
+        public AesCryptor(byte[] key, byte[] iv) 
         {
             this.key = key;
             this.iv = iv;

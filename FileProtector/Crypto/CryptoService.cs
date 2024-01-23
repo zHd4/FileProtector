@@ -3,24 +3,24 @@ using System.Security.Cryptography;
 
 namespace FileProtector.Crypto
 {
-    public class CryptoManager
+    public class CryptoService
     {
         private byte[] passwordBytes;
 
-        public CryptoManager(string password)
+        public CryptoService(string password)
         {
             passwordBytes = Encoding.UTF8.GetBytes(password);
         }
 
         public void EncryptFile(string path)
         {
-            AesProcessor processor = new AesProcessor(GetKey(), GetIV());
+            AesCryptor processor = new AesCryptor(GetKey(), GetIV());
             File.WriteAllBytes(path, processor.Encrypt(File.ReadAllBytes(path)));
         }
 
         public void DecryptFile(string path)
         {
-            AesProcessor processor = new AesProcessor(GetKey(), GetIV());
+            AesCryptor processor = new AesCryptor(GetKey(), GetIV());
             File.WriteAllBytes(path, processor.Decrypt(File.ReadAllBytes(path)));
         }
 
