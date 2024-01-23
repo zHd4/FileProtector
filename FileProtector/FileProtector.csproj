@@ -13,7 +13,12 @@
     <RepositoryUrl>https://github.com/zHd4/FileProtector</RepositoryUrl>
     <AssemblyVersion>2.3</AssemblyVersion>
     <FileVersion>2.3</FileVersion>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="icon.ico" />
+  </ItemGroup>
 
   <ItemGroup>
     <Compile Update="Properties\Resources.Designer.cs">
