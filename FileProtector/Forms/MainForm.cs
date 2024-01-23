@@ -1,7 +1,6 @@
 using FileProtector.Model;
 using FileProtector.Models;
-using System.Diagnostics;
-using System.Reflection;
+using FileProtector.Utils;
 using System.Runtime.InteropServices;
 
 namespace FileProtector
@@ -27,7 +26,7 @@ namespace FileProtector
         public MainForm()
         {
             InitializeComponent();
-            Text += " " + FetchVersion();
+            Text += " " + AppUtils.FetchVersion();
 
             MaximizeBox = false;
             OperationsFormFields = GetFieldsList();
@@ -108,14 +107,6 @@ namespace FileProtector
                         field.Field.UseSystemPasswordChar = !ShowPasswordCheckBox.Checked;
                     }
                 });
-        }
-
-        private string FetchVersion()
-        {
-            Assembly assembly = Assembly.GetExecutingAssembly();
-            FileVersionInfo info = FileVersionInfo.GetVersionInfo(assembly.Location);
-
-            return info.FileVersion ?? throw new NullReferenceException();
         }
 
         private Point GetShowPasswordCheckBoxLocation()
