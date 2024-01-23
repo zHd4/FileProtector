@@ -74,7 +74,7 @@
             // ShowPasswordCheckBox
             // 
             this.ShowPasswordCheckBox.AutoSize = true;
-            this.ShowPasswordCheckBox.Location = new System.Drawing.Point(577, 278);
+            this.ShowPasswordCheckBox.Location = new System.Drawing.Point(577, 285);
             this.ShowPasswordCheckBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ShowPasswordCheckBox.Name = "ShowPasswordCheckBox";
             this.ShowPasswordCheckBox.Size = new System.Drawing.Size(134, 22);
@@ -171,7 +171,7 @@
             // 
             this.Step2DescriptionLabel.AutoSize = true;
             this.Step2DescriptionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Step2DescriptionLabel.Location = new System.Drawing.Point(652, 195);
+            this.Step2DescriptionLabel.Location = new System.Drawing.Point(652, 202);
             this.Step2DescriptionLabel.Name = "Step2DescriptionLabel";
             this.Step2DescriptionLabel.Size = new System.Drawing.Size(106, 17);
             this.Step2DescriptionLabel.TabIndex = 18;
@@ -181,7 +181,7 @@
             // 
             this.Step2Label.AutoSize = true;
             this.Step2Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Step2Label.Location = new System.Drawing.Point(657, 157);
+            this.Step2Label.Location = new System.Drawing.Point(657, 164);
             this.Step2Label.Name = "Step2Label";
             this.Step2Label.Size = new System.Drawing.Size(92, 31);
             this.Step2Label.TabIndex = 17;
@@ -212,7 +212,7 @@
             this.PasswordTextBoxExternalContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(38)))), ((int)(((byte)(86)))));
             this.PasswordTextBoxExternalContainer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.PasswordTextBoxExternalContainer.Controls.Add(this.PasswordTextBoxInternalContainer);
-            this.PasswordTextBoxExternalContainer.Location = new System.Drawing.Point(577, 220);
+            this.PasswordTextBoxExternalContainer.Location = new System.Drawing.Point(577, 227);
             this.PasswordTextBoxExternalContainer.Name = "PasswordTextBoxExternalContainer";
             this.PasswordTextBoxExternalContainer.Size = new System.Drawing.Size(258, 23);
             this.PasswordTextBoxExternalContainer.TabIndex = 21;
@@ -231,7 +231,7 @@
             this.ConfirmPasswordTextBoxExternalContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(38)))), ((int)(((byte)(86)))));
             this.ConfirmPasswordTextBoxExternalContainer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ConfirmPasswordTextBoxExternalContainer.Controls.Add(this.ConfirmPasswordTextBoxInternalContainer);
-            this.ConfirmPasswordTextBoxExternalContainer.Location = new System.Drawing.Point(577, 249);
+            this.ConfirmPasswordTextBoxExternalContainer.Location = new System.Drawing.Point(577, 256);
             this.ConfirmPasswordTextBoxExternalContainer.Name = "ConfirmPasswordTextBoxExternalContainer";
             this.ConfirmPasswordTextBoxExternalContainer.Size = new System.Drawing.Size(258, 23);
             this.ConfirmPasswordTextBoxExternalContainer.TabIndex = 22;
