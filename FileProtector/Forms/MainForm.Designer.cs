@@ -63,10 +63,10 @@
             this.ProceedButton.FlatAppearance.BorderSize = 0;
             this.ProceedButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ProceedButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.ProceedButton.Location = new System.Drawing.Point(177, 524);
+            this.ProceedButton.Location = new System.Drawing.Point(182, 537);
             this.ProceedButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ProceedButton.Name = "ProceedButton";
-            this.ProceedButton.Size = new System.Drawing.Size(138, 57);
+            this.ProceedButton.Size = new System.Drawing.Size(122, 37);
             this.ProceedButton.TabIndex = 11;
             this.ProceedButton.Text = "Encrypt!";
             this.ProceedButton.UseVisualStyleBackColor = false;
@@ -125,7 +125,7 @@
             // 
             this.EncryptRadioButton.AutoSize = true;
             this.EncryptRadioButton.Checked = true;
-            this.EncryptRadioButton.Location = new System.Drawing.Point(161, 489);
+            this.EncryptRadioButton.Location = new System.Drawing.Point(161, 502);
             this.EncryptRadioButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.EncryptRadioButton.Name = "EncryptRadioButton";
             this.EncryptRadioButton.Size = new System.Drawing.Size(76, 22);
@@ -138,7 +138,7 @@
             // DecryptRadioButton
             // 
             this.DecryptRadioButton.AutoSize = true;
-            this.DecryptRadioButton.Location = new System.Drawing.Point(254, 489);
+            this.DecryptRadioButton.Location = new System.Drawing.Point(254, 502);
             this.DecryptRadioButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.DecryptRadioButton.Name = "DecryptRadioButton";
             this.DecryptRadioButton.Size = new System.Drawing.Size(77, 22);
@@ -191,7 +191,7 @@
             // 
             this.Step3DescriptionLabel.AutoSize = true;
             this.Step3DescriptionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Step3DescriptionLabel.Location = new System.Drawing.Point(174, 463);
+            this.Step3DescriptionLabel.Location = new System.Drawing.Point(174, 476);
             this.Step3DescriptionLabel.Name = "Step3DescriptionLabel";
             this.Step3DescriptionLabel.Size = new System.Drawing.Size(142, 17);
             this.Step3DescriptionLabel.TabIndex = 20;
@@ -201,7 +201,7 @@
             // 
             this.Step3Label.AutoSize = true;
             this.Step3Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Step3Label.Location = new System.Drawing.Point(201, 428);
+            this.Step3Label.Location = new System.Drawing.Point(201, 441);
             this.Step3Label.Name = "Step3Label";
             this.Step3Label.Size = new System.Drawing.Size(92, 31);
             this.Step3Label.TabIndex = 19;
@@ -253,7 +253,7 @@
             this.WindowControlPanel.Controls.Add(this.WindowNameLabel);
             this.WindowControlPanel.Location = new System.Drawing.Point(0, 0);
             this.WindowControlPanel.Name = "WindowControlPanel";
-            this.WindowControlPanel.Size = new System.Drawing.Size(900, 35);
+            this.WindowControlPanel.Size = new System.Drawing.Size(900, 21);
             this.WindowControlPanel.TabIndex = 23;
             this.WindowControlPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.WindowControlPanel_MouseDown);
             // 
@@ -264,10 +264,10 @@
             this.MinimizeButton.FlatAppearance.BorderSize = 0;
             this.MinimizeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MinimizeButton.ForeColor = System.Drawing.Color.White;
-            this.MinimizeButton.Location = new System.Drawing.Point(830, 0);
+            this.MinimizeButton.Location = new System.Drawing.Point(858, 0);
             this.MinimizeButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MinimizeButton.Name = "MinimizeButton";
-            this.MinimizeButton.Size = new System.Drawing.Size(35, 35);
+            this.MinimizeButton.Size = new System.Drawing.Size(21, 21);
             this.MinimizeButton.TabIndex = 25;
             this.MinimizeButton.UseVisualStyleBackColor = false;
             this.MinimizeButton.Click += new System.EventHandler(this.MinimizeButton_Click);
@@ -279,10 +279,10 @@
             this.CloseButton.FlatAppearance.BorderSize = 0;
             this.CloseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CloseButton.ForeColor = System.Drawing.Color.White;
-            this.CloseButton.Location = new System.Drawing.Point(865, 0);
+            this.CloseButton.Location = new System.Drawing.Point(879, 0);
             this.CloseButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.CloseButton.Name = "CloseButton";
-            this.CloseButton.Size = new System.Drawing.Size(35, 35);
+            this.CloseButton.Size = new System.Drawing.Size(21, 21);
             this.CloseButton.TabIndex = 24;
             this.CloseButton.UseVisualStyleBackColor = false;
             this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
@@ -290,10 +290,10 @@
             // WindowNameLabel
             // 
             this.WindowNameLabel.AutoSize = true;
-            this.WindowNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.WindowNameLabel.Location = new System.Drawing.Point(3, 5);
+            this.WindowNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.WindowNameLabel.Location = new System.Drawing.Point(3, 2);
             this.WindowNameLabel.Name = "WindowNameLabel";
-            this.WindowNameLabel.Size = new System.Drawing.Size(121, 25);
+            this.WindowNameLabel.Size = new System.Drawing.Size(88, 17);
             this.WindowNameLabel.TabIndex = 16;
             this.WindowNameLabel.Text = "FileProtector";
             this.WindowNameLabel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.WindowNameLabel_MouseDown);
