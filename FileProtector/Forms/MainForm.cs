@@ -26,7 +26,7 @@ namespace FileProtector
         public MainForm()
         {
             InitializeComponent();
-            Text += " " + AppUtils.FetchVersion();
+            AppVersionLabel.Text = "v" + AppUtils.FetchVersion();
 
             MaximizeBox = false;
             OperationsFormFields = GetFieldsList();

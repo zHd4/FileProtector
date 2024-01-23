@@ -49,6 +49,7 @@
             this.MinimizeButton = new System.Windows.Forms.Button();
             this.CloseButton = new System.Windows.Forms.Button();
             this.WindowNameLabel = new System.Windows.Forms.Label();
+            this.AppVersionLabel = new System.Windows.Forms.Label();
             this.PasswordTextBoxExternalContainer.SuspendLayout();
             this.PasswordTextBoxInternalContainer.SuspendLayout();
             this.ConfirmPasswordTextBoxExternalContainer.SuspendLayout();
@@ -297,6 +298,16 @@
             this.WindowNameLabel.Text = "FileProtector";
             this.WindowNameLabel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.WindowNameLabel_MouseDown);
             // 
+            // AppVersionLabel
+            // 
+            this.AppVersionLabel.AutoSize = true;
+            this.AppVersionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.AppVersionLabel.Location = new System.Drawing.Point(871, 632);
+            this.AppVersionLabel.Name = "AppVersionLabel";
+            this.AppVersionLabel.Size = new System.Drawing.Size(31, 15);
+            this.AppVersionLabel.TabIndex = 24;
+            this.AppVersionLabel.Text = "vX.X";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -305,6 +316,7 @@
             this.BackgroundImage = global::FileProtector.Properties.Resources.background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(900, 650);
+            this.Controls.Add(this.AppVersionLabel);
             this.Controls.Add(this.WindowControlPanel);
             this.Controls.Add(this.ConfirmPasswordTextBoxExternalContainer);
             this.Controls.Add(this.PasswordTextBoxExternalContainer);
@@ -362,5 +374,6 @@
         private Label WindowNameLabel;
         private Button CloseButton;
         private Button MinimizeButton;
+        private Label AppVersionLabel;
     }
 }
