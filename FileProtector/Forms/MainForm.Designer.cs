@@ -254,7 +254,7 @@
             this.WindowControlPanel.Controls.Add(this.WindowNameLabel);
             this.WindowControlPanel.Location = new System.Drawing.Point(0, 0);
             this.WindowControlPanel.Name = "WindowControlPanel";
-            this.WindowControlPanel.Size = new System.Drawing.Size(900, 21);
+            this.WindowControlPanel.Size = new System.Drawing.Size(900, 29);
             this.WindowControlPanel.TabIndex = 23;
             this.WindowControlPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.WindowControlPanel_MouseDown);
             // 
@@ -265,10 +265,10 @@
             this.MinimizeButton.FlatAppearance.BorderSize = 0;
             this.MinimizeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MinimizeButton.ForeColor = System.Drawing.Color.White;
-            this.MinimizeButton.Location = new System.Drawing.Point(858, 0);
+            this.MinimizeButton.Location = new System.Drawing.Point(810, 0);
             this.MinimizeButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MinimizeButton.Name = "MinimizeButton";
-            this.MinimizeButton.Size = new System.Drawing.Size(21, 21);
+            this.MinimizeButton.Size = new System.Drawing.Size(45, 29);
             this.MinimizeButton.TabIndex = 25;
             this.MinimizeButton.UseVisualStyleBackColor = false;
             this.MinimizeButton.Click += new System.EventHandler(this.MinimizeButton_Click);
@@ -280,10 +280,10 @@
             this.CloseButton.FlatAppearance.BorderSize = 0;
             this.CloseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CloseButton.ForeColor = System.Drawing.Color.White;
-            this.CloseButton.Location = new System.Drawing.Point(879, 0);
+            this.CloseButton.Location = new System.Drawing.Point(855, 0);
             this.CloseButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.CloseButton.Name = "CloseButton";
-            this.CloseButton.Size = new System.Drawing.Size(21, 21);
+            this.CloseButton.Size = new System.Drawing.Size(45, 29);
             this.CloseButton.TabIndex = 24;
             this.CloseButton.UseVisualStyleBackColor = false;
             this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
@@ -292,7 +292,7 @@
             // 
             this.WindowNameLabel.AutoSize = true;
             this.WindowNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.WindowNameLabel.Location = new System.Drawing.Point(3, 2);
+            this.WindowNameLabel.Location = new System.Drawing.Point(406, 6);
             this.WindowNameLabel.Name = "WindowNameLabel";
             this.WindowNameLabel.Size = new System.Drawing.Size(88, 17);
             this.WindowNameLabel.TabIndex = 16;
