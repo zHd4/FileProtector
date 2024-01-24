@@ -130,6 +130,11 @@ namespace FileProtector
             MoveForm(sender, e);
         }
 
+        private void IconPictureBox_MouseDown(object sender, MouseEventArgs e)
+        {
+            MoveForm(sender, e);
+        }
+
         private void CloseButton_Click(object sender, EventArgs e)
         {
             Close();

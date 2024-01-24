@@ -47,6 +47,7 @@
             this.ConfirmPasswordTextBoxExternalContainer = new System.Windows.Forms.Panel();
             this.ConfirmPasswordTextBoxInternalContainer = new System.Windows.Forms.Panel();
             this.WindowControlPanel = new System.Windows.Forms.Panel();
+            this.IconPictureBox = new System.Windows.Forms.PictureBox();
             this.MinimizeButton = new System.Windows.Forms.Button();
             this.CloseButton = new System.Windows.Forms.Button();
             this.WindowNameLabel = new System.Windows.Forms.Label();
@@ -56,6 +57,7 @@
             this.ConfirmPasswordTextBoxExternalContainer.SuspendLayout();
             this.ConfirmPasswordTextBoxInternalContainer.SuspendLayout();
             this.WindowControlPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.IconPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // ProceedButton
@@ -249,6 +251,7 @@
             // WindowControlPanel
             // 
             this.WindowControlPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(38)))), ((int)(((byte)(86)))));
+            this.WindowControlPanel.Controls.Add(this.IconPictureBox);
             this.WindowControlPanel.Controls.Add(this.MinimizeButton);
             this.WindowControlPanel.Controls.Add(this.CloseButton);
             this.WindowControlPanel.Controls.Add(this.WindowNameLabel);
@@ -257,6 +260,17 @@
             this.WindowControlPanel.Size = new System.Drawing.Size(900, 29);
             this.WindowControlPanel.TabIndex = 23;
             this.WindowControlPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.WindowControlPanel_MouseDown);
+            // 
+            // IconPictureBox
+            // 
+            this.IconPictureBox.BackgroundImage = global::FileProtector.Properties.Resources.icon;
+            this.IconPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.IconPictureBox.Location = new System.Drawing.Point(2, 2);
+            this.IconPictureBox.Name = "IconPictureBox";
+            this.IconPictureBox.Size = new System.Drawing.Size(25, 25);
+            this.IconPictureBox.TabIndex = 26;
+            this.IconPictureBox.TabStop = false;
+            this.IconPictureBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.IconPictureBox_MouseDown);
             // 
             // MinimizeButton
             // 
@@ -349,6 +363,7 @@
             this.ConfirmPasswordTextBoxInternalContainer.PerformLayout();
             this.WindowControlPanel.ResumeLayout(false);
             this.WindowControlPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.IconPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -377,5 +392,6 @@
         private Button CloseButton;
         private Button MinimizeButton;
         private Label AppVersionLabel;
+        private PictureBox IconPictureBox;
     }
 }
