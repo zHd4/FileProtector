@@ -145,5 +145,10 @@ namespace FileProtector
         {
             WindowState = FormWindowState.Minimized;
         }
+
+        private void OnBrowseButtonClick(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

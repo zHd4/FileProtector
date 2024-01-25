@@ -52,6 +52,8 @@
             this.CloseButton = new System.Windows.Forms.Button();
             this.WindowNameLabel = new System.Windows.Forms.Label();
             this.AppVersionLabel = new System.Windows.Forms.Label();
+            this.FolderRadioButton = new System.Windows.Forms.RadioButton();
+            this.FilesRadioButton = new System.Windows.Forms.RadioButton();
             this.PasswordTextBoxExternalContainer.SuspendLayout();
             this.PasswordTextBoxInternalContainer.SuspendLayout();
             this.ConfirmPasswordTextBoxExternalContainer.SuspendLayout();
@@ -120,19 +122,20 @@
             this.BrowseButton.FlatAppearance.BorderSize = 0;
             this.BrowseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BrowseButton.ForeColor = System.Drawing.Color.White;
-            this.BrowseButton.Location = new System.Drawing.Point(87, 184);
+            this.BrowseButton.Location = new System.Drawing.Point(87, 200);
             this.BrowseButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.BrowseButton.Name = "BrowseButton";
             this.BrowseButton.Size = new System.Drawing.Size(122, 37);
             this.BrowseButton.TabIndex = 7;
             this.BrowseButton.Text = "Browse...";
             this.BrowseButton.UseVisualStyleBackColor = false;
+            this.BrowseButton.Click += new System.EventHandler(this.OnBrowseButtonClick);
             // 
             // EncryptRadioButton
             // 
             this.EncryptRadioButton.AutoSize = true;
             this.EncryptRadioButton.Checked = true;
-            this.EncryptRadioButton.Location = new System.Drawing.Point(161, 502);
+            this.EncryptRadioButton.Location = new System.Drawing.Point(165, 502);
             this.EncryptRadioButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.EncryptRadioButton.Name = "EncryptRadioButton";
             this.EncryptRadioButton.Size = new System.Drawing.Size(76, 22);
@@ -145,7 +148,7 @@
             // DecryptRadioButton
             // 
             this.DecryptRadioButton.AutoSize = true;
-            this.DecryptRadioButton.Location = new System.Drawing.Point(254, 502);
+            this.DecryptRadioButton.Location = new System.Drawing.Point(247, 502);
             this.DecryptRadioButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.DecryptRadioButton.Name = "DecryptRadioButton";
             this.DecryptRadioButton.Size = new System.Drawing.Size(77, 22);
@@ -158,7 +161,7 @@
             // 
             this.Step1Label.AutoSize = true;
             this.Step1Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Step1Label.Location = new System.Drawing.Point(101, 116);
+            this.Step1Label.Location = new System.Drawing.Point(101, 108);
             this.Step1Label.Name = "Step1Label";
             this.Step1Label.Size = new System.Drawing.Size(92, 31);
             this.Step1Label.TabIndex = 15;
@@ -168,11 +171,11 @@
             // 
             this.Step1DescriptionLabel.AutoSize = true;
             this.Step1DescriptionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Step1DescriptionLabel.Location = new System.Drawing.Point(71, 154);
+            this.Step1DescriptionLabel.Location = new System.Drawing.Point(77, 146);
             this.Step1DescriptionLabel.Name = "Step1DescriptionLabel";
-            this.Step1DescriptionLabel.Size = new System.Drawing.Size(160, 17);
+            this.Step1DescriptionLabel.Size = new System.Drawing.Size(143, 17);
             this.Step1DescriptionLabel.TabIndex = 16;
-            this.Step1DescriptionLabel.Text = "Select file(s) or folder(s)";
+            this.Step1DescriptionLabel.Text = "Select file(s) or folder";
             // 
             // Step2DescriptionLabel
             // 
@@ -324,6 +327,30 @@
             this.AppVersionLabel.TabIndex = 24;
             this.AppVersionLabel.Text = "vX.X";
             // 
+            // FolderRadioButton
+            // 
+            this.FolderRadioButton.AutoSize = true;
+            this.FolderRadioButton.Location = new System.Drawing.Point(150, 170);
+            this.FolderRadioButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.FolderRadioButton.Name = "FolderRadioButton";
+            this.FolderRadioButton.Size = new System.Drawing.Size(68, 22);
+            this.FolderRadioButton.TabIndex = 26;
+            this.FolderRadioButton.Text = "Folder";
+            this.FolderRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // FilesRadioButton
+            // 
+            this.FilesRadioButton.AutoSize = true;
+            this.FilesRadioButton.Checked = true;
+            this.FilesRadioButton.Location = new System.Drawing.Point(77, 170);
+            this.FilesRadioButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.FilesRadioButton.Name = "FilesRadioButton";
+            this.FilesRadioButton.Size = new System.Drawing.Size(67, 22);
+            this.FilesRadioButton.TabIndex = 25;
+            this.FilesRadioButton.TabStop = true;
+            this.FilesRadioButton.Text = "File(s)";
+            this.FilesRadioButton.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -332,6 +359,8 @@
             this.BackgroundImage = global::FileProtector.Properties.Resources.background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(900, 650);
+            this.Controls.Add(this.FolderRadioButton);
+            this.Controls.Add(this.FilesRadioButton);
             this.Controls.Add(this.AppVersionLabel);
             this.Controls.Add(this.WindowControlPanel);
             this.Controls.Add(this.ConfirmPasswordTextBoxExternalContainer);
@@ -393,5 +422,7 @@
         private Button MinimizeButton;
         private Label AppVersionLabel;
         private PictureBox IconPictureBox;
+        private RadioButton FolderRadioButton;
+        private RadioButton FilesRadioButton;
     }
 }
