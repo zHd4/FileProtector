@@ -1,4 +1,4 @@
-﻿namespace FileProtector.Model
+﻿namespace FileProtector.Models
 {
     public enum TransformationMode
     {

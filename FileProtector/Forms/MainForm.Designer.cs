@@ -97,6 +97,8 @@
             this.ConfirmPasswordTextBox.Size = new System.Drawing.Size(252, 17);
             this.ConfirmPasswordTextBox.TabIndex = 9;
             this.ConfirmPasswordTextBox.Text = "Confirm password";
+            this.ConfirmPasswordTextBox.Enter += new System.EventHandler(this.OnConfirmPasswordTextBoxEnter);
+            this.ConfirmPasswordTextBox.Leave += new System.EventHandler(this.OnConfirmPasswordTextBoxLeave);
             // 
             // PasswordTextBox
             // 
@@ -109,6 +111,8 @@
             this.PasswordTextBox.Size = new System.Drawing.Size(252, 17);
             this.PasswordTextBox.TabIndex = 8;
             this.PasswordTextBox.Text = "Password";
+            this.PasswordTextBox.Enter += new System.EventHandler(this.OnPasswordTextBoxEnter);
+            this.PasswordTextBox.Leave += new System.EventHandler(this.OnPasswordTextBoxLeave);
             // 
             // BrowseButton
             // 

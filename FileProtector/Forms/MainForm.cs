@@ -1,4 +1,3 @@
-using FileProtector.Model;
 using FileProtector.Models;
 using FileProtector.Utils;
 using System.Runtime.InteropServices;
@@ -16,12 +15,10 @@ namespace FileProtector
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
 
-        private static Color FieldsTextColor = Color.White;
-        private static Color FieldsPlaceholderColor = Color.DimGray;
+        private readonly Color FieldsTextColor = Color.White;
+        private readonly Color FieldsPlaceholderColor = Color.DimGray;
 
-        private List<FormField> FormFields;
         private Point ShowPasswordLoacation;
-
         private TransformationMode CurrentMode = TransformationMode.Encrypt;
 
         public MainForm()
@@ -30,21 +27,12 @@ namespace FileProtector
             ConfigureMovables(GetMovables());
 
             AppVersionLabel.Text = "v" + AppUtils.FetchVersion();
-            FormFields = GetFieldsList();
 
             MaximizeBox = false;
             ShowPasswordLoacation = GetShowPasswordLocation();
 
-            SetFieldsPlaceholders();
-        }
-
-        private List<FormField> GetFieldsList()
-        {
-            return new List<FormField> 
-            {
-                new FormField(PasswordTextBox, "Password", true),
-                new FormField(ConfirmPasswordTextBox, "Confirm password", true)
-            };
+            PasswordTextBox.ForeColor = FieldsPlaceholderColor;
+            ConfirmPasswordTextBox.ForeColor = FieldsPlaceholderColor;
         }
 
         private List<Control> GetMovables()
@@ -53,44 +41,6 @@ namespace FileProtector
             {
                 this, WindowControlPanel, WindowNameLabel, IconPictureBox
             };
-        }
-
-        private void SetFieldsPlaceholders()
-        {
-            foreach (FormField formField in FormFields)
-            {
-                TextBox field = formField.Field;
-                string placeholder = formField.Placeholder;
-
-                bool isPassword = formField.IsPassword;
-                field.ForeColor = FieldsPlaceholderColor;
-
-                field.Enter += new EventHandler((sender, e) => {
-                    if (field.ForeColor == FieldsPlaceholderColor)
-                    {
-                        field.Text = "";
-                        field.ForeColor = FieldsTextColor;
-
-                        if (isPassword && PasswordIsHidden())
-                        {
-                            field.UseSystemPasswordChar = true;
-                        }
-                    }
-                });
-
-                field.Leave += new EventHandler((sender, e) => {
-                    if (field.Text == "")
-                    {
-                        field.Text = placeholder;
-                        field.ForeColor = FieldsPlaceholderColor;
-
-                        if (isPassword && PasswordIsHidden())
-                        {
-                            field.UseSystemPasswordChar = false;
-                        }
-                    }
-                });
-            }
         }
 
         private void ConfigureMovables(List<Control> movables)
@@ -105,38 +55,23 @@ namespace FileProtector
             }));
         }
 
-        private bool PasswordIsHidden()
-        {
-            return !ShowPasswordCheckBox.Checked;
-        }
-
         private void ShowPasswordCheckedChanged(object sender, EventArgs e)
         {
-            FormFields.Where(field => field.IsPassword)
-                .ToList()
-                .ForEach(field =>
-                {
-                    if (field.Field.Text != field.Placeholder)
-                    {
-                        field.Field.UseSystemPasswordChar = !ShowPasswordCheckBox.Checked;
-                    }
-                });
+            if (PasswordTextBox.ForeColor != FieldsPlaceholderColor)
+            {
+                PasswordTextBox.UseSystemPasswordChar = !ShowPasswordCheckBox.Checked;
+            }
+
+            if (ConfirmPasswordTextBox.ForeColor != FieldsPlaceholderColor)
+            {
+                ConfirmPasswordTextBox.UseSystemPasswordChar = !ShowPasswordCheckBox.Checked;
+            }
         }
 
         private Point GetShowPasswordLocation()
         {
             Point location = ShowPasswordCheckBox.Location;
             return new Point(location.X, location.Y);
-        }
-
-        private void OnCloseButtonClick(object sender, EventArgs e)
-        {
-            Close();
-        }
-
-        private void OnMinimizeButtonClick(object sender, EventArgs e)
-        {
-            WindowState = FormWindowState.Minimized;
         }
 
         private void OnEncryptRadioCheckedChanged(object sender, EventArgs e)
@@ -159,6 +94,56 @@ namespace FileProtector
 
             ShowPasswordCheckBox.Location = ConfirmPasswordTextBoxExternalContainer.Location;
             ProceedButton.Text = "Decrypt!";
+        }
+
+        private void OnPasswordFieldEnter(TextBox field)
+        {
+            if (field.ForeColor == FieldsPlaceholderColor)
+            {
+                field.Text = "";
+                field.ForeColor = FieldsTextColor;
+                field.UseSystemPasswordChar = true;
+            }
+        }
+
+        private void OnPasswordFieldLeave(TextBox field, string placeholder)
+        {
+            if (field.Text == "")
+            {
+                field.Text = placeholder;
+                field.ForeColor = FieldsPlaceholderColor;
+                field.UseSystemPasswordChar = false;
+            }
+        }
+
+        private void OnPasswordTextBoxEnter(object sender, EventArgs e)
+        {
+            OnPasswordFieldEnter(PasswordTextBox);
+        }
+
+        private void OnConfirmPasswordTextBoxEnter(object sender, EventArgs e)
+        {
+            OnPasswordFieldEnter(ConfirmPasswordTextBox);
+        }
+
+        private void OnPasswordTextBoxLeave(object sender, EventArgs e)
+        {
+            OnPasswordFieldLeave(PasswordTextBox, "Password");
+        }
+
+        private void OnConfirmPasswordTextBoxLeave(object sender, EventArgs e)
+        {
+            OnPasswordFieldLeave(ConfirmPasswordTextBox, "Confirm password");
+        }
+
+        private void OnCloseButtonClick(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void OnMinimizeButtonClick(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
         }
     }
 }
