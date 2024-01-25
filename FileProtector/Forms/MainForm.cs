@@ -19,19 +19,22 @@ namespace FileProtector
         private static Color FieldsTextColor = Color.White;
         private static Color FieldsPlaceholderColor = Color.DimGray;
 
-        private List<FormField> OperationsFormFields;
-        private Point ShowPasswordCheckBoxOriginalLoacation;
+        private List<FormField> FormFields;
+        private Point ShowPasswordLoacation;
+
         private TransformationMode CurrentMode = TransformationMode.Encrypt;
 
         public MainForm()
         {
             InitializeComponent();
+            ConfigureMovables(GetMovables());
+
             AppVersionLabel.Text = "v" + AppUtils.FetchVersion();
+            FormFields = GetFieldsList();
 
             MaximizeBox = false;
-            OperationsFormFields = GetFieldsList();
+            ShowPasswordLoacation = GetShowPasswordLocation();
 
-            ShowPasswordCheckBoxOriginalLoacation = GetShowPasswordCheckBoxLocation();
             SetFieldsPlaceholders();
         }
 
@@ -44,9 +47,17 @@ namespace FileProtector
             };
         }
 
+        private List<Control> GetMovables()
+        {
+            return new List<Control>
+            {
+                this, WindowControlPanel, WindowNameLabel, IconPictureBox
+            };
+        }
+
         private void SetFieldsPlaceholders()
         {
-            foreach (FormField formField in OperationsFormFields)
+            foreach (FormField formField in FormFields)
             {
                 TextBox field = formField.Field;
                 string placeholder = formField.Placeholder;
@@ -82,13 +93,16 @@ namespace FileProtector
             }
         }
 
-        private void MoveForm(object sender, MouseEventArgs e)
+        private void ConfigureMovables(List<Control> movables)
         {
-            if (e.Button == MouseButtons.Left)
+            movables.ForEach(movable => movable.MouseDown += new MouseEventHandler((sender, e) => 
             {
-                ReleaseCapture();
-                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
-            }
+                if (e.Button == MouseButtons.Left)
+                {
+                    ReleaseCapture();
+                    SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+                }
+            }));
         }
 
         private bool PasswordIsHidden()
@@ -98,7 +112,7 @@ namespace FileProtector
 
         private void ShowPasswordCheckedChanged(object sender, EventArgs e)
         {
-            OperationsFormFields.Where(field => field.IsPassword)
+            FormFields.Where(field => field.IsPassword)
                 .ToList()
                 .ForEach(field =>
                 {
@@ -109,46 +123,26 @@ namespace FileProtector
                 });
         }
 
-        private Point GetShowPasswordCheckBoxLocation()
+        private Point GetShowPasswordLocation()
         {
             Point location = ShowPasswordCheckBox.Location;
             return new Point(location.X, location.Y);
         }
 
-        private void MainForm_MouseDown(object sender, MouseEventArgs e)
-        {
-            MoveForm(sender, e);
-        }
-
-        private void WindowControlPanel_MouseDown(object sender, MouseEventArgs e)
-        {
-            MoveForm(sender, e);
-        }
-
-        private void WindowNameLabel_MouseDown(object sender, MouseEventArgs e)
-        {
-            MoveForm(sender, e);
-        }
-
-        private void IconPictureBox_MouseDown(object sender, MouseEventArgs e)
-        {
-            MoveForm(sender, e);
-        }
-
-        private void CloseButton_Click(object sender, EventArgs e)
+        private void OnCloseButtonClick(object sender, EventArgs e)
         {
             Close();
         }
 
-        private void MinimizeButton_Click(object sender, EventArgs e)
+        private void OnMinimizeButtonClick(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
         }
 
-        private void EncryptRadioButton_CheckedChanged(object sender, EventArgs e)
+        private void OnEncryptRadioCheckedChanged(object sender, EventArgs e)
         {
             CurrentMode = TransformationMode.Encrypt;
-            ShowPasswordCheckBox.Location = ShowPasswordCheckBoxOriginalLoacation;
+            ShowPasswordCheckBox.Location = ShowPasswordLoacation;
 
             ConfirmPasswordTextBoxExternalContainer.Enabled = true;
             ConfirmPasswordTextBoxExternalContainer.Visible = true;
@@ -156,7 +150,7 @@ namespace FileProtector
             ProceedButton.Text = "Encrypt!";
         }
 
-        private void DecryptRadioButton_CheckedChanged(object sender, EventArgs e)
+        private void OnDecryptRadioCheckedChanged(object sender, EventArgs e)
         {
             CurrentMode = TransformationMode.Decrypt;
 

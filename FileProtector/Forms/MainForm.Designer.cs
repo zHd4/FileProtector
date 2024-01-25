@@ -136,7 +136,7 @@
             this.EncryptRadioButton.TabStop = true;
             this.EncryptRadioButton.Text = "Encrypt";
             this.EncryptRadioButton.UseVisualStyleBackColor = true;
-            this.EncryptRadioButton.CheckedChanged += new System.EventHandler(this.EncryptRadioButton_CheckedChanged);
+            this.EncryptRadioButton.CheckedChanged += new System.EventHandler(this.OnEncryptRadioCheckedChanged);
             // 
             // DecryptRadioButton
             // 
@@ -148,7 +148,7 @@
             this.DecryptRadioButton.TabIndex = 13;
             this.DecryptRadioButton.Text = "Decrypt";
             this.DecryptRadioButton.UseVisualStyleBackColor = true;
-            this.DecryptRadioButton.CheckedChanged += new System.EventHandler(this.DecryptRadioButton_CheckedChanged);
+            this.DecryptRadioButton.CheckedChanged += new System.EventHandler(this.OnDecryptRadioCheckedChanged);
             // 
             // Step1Label
             // 
@@ -259,7 +259,6 @@
             this.WindowControlPanel.Name = "WindowControlPanel";
             this.WindowControlPanel.Size = new System.Drawing.Size(900, 29);
             this.WindowControlPanel.TabIndex = 23;
-            this.WindowControlPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.WindowControlPanel_MouseDown);
             // 
             // IconPictureBox
             // 
@@ -270,7 +269,6 @@
             this.IconPictureBox.Size = new System.Drawing.Size(25, 25);
             this.IconPictureBox.TabIndex = 26;
             this.IconPictureBox.TabStop = false;
-            this.IconPictureBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.IconPictureBox_MouseDown);
             // 
             // MinimizeButton
             // 
@@ -285,7 +283,7 @@
             this.MinimizeButton.Size = new System.Drawing.Size(45, 29);
             this.MinimizeButton.TabIndex = 25;
             this.MinimizeButton.UseVisualStyleBackColor = false;
-            this.MinimizeButton.Click += new System.EventHandler(this.MinimizeButton_Click);
+            this.MinimizeButton.Click += new System.EventHandler(this.OnMinimizeButtonClick);
             // 
             // CloseButton
             // 
@@ -300,7 +298,7 @@
             this.CloseButton.Size = new System.Drawing.Size(45, 29);
             this.CloseButton.TabIndex = 24;
             this.CloseButton.UseVisualStyleBackColor = false;
-            this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
+            this.CloseButton.Click += new System.EventHandler(this.OnCloseButtonClick);
             // 
             // WindowNameLabel
             // 
@@ -311,7 +309,6 @@
             this.WindowNameLabel.Size = new System.Drawing.Size(88, 17);
             this.WindowNameLabel.TabIndex = 16;
             this.WindowNameLabel.Text = "FileProtector";
-            this.WindowNameLabel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.WindowNameLabel_MouseDown);
             // 
             // AppVersionLabel
             // 
@@ -354,7 +351,6 @@
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FileProtector";
-            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseDown);
             this.PasswordTextBoxExternalContainer.ResumeLayout(false);
             this.PasswordTextBoxInternalContainer.ResumeLayout(false);
             this.PasswordTextBoxInternalContainer.PerformLayout();
