@@ -7,18 +7,26 @@ namespace FileProtector
     public partial class MainForm : Form
     {
         [DllImport("user32.dll")]
-        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+        private static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
 
         [DllImport("user32.dll")]
-        public static extern bool ReleaseCapture();
+        private static extern bool ReleaseCapture();
 
-        public const int WM_NCLBUTTONDOWN = 0xA1;
-        public const int HT_CAPTION = 0x2;
+        private const int WM_NCLBUTTONDOWN = 0xA1;
+        private const int HT_CAPTION = 0x2;
+
+        private const string DefaultBrowseText = "Browse...";
+        private const string ActivatedBrowseText = "Other...";
+
+        private readonly Color DefaultBrowseColor = Color.FromArgb(43, 38, 86);
+        private readonly Color ActivatedBrowseColor = Color.FromArgb(190, 13, 237);
 
         private readonly Color FieldsTextColor = Color.White;
         private readonly Color FieldsPlaceholderColor = Color.DimGray;
 
         private Point ShowPasswordLoacation;
+
+        private List<string> SelectedPaths = new List<string>();
         private TransformationMode CurrentMode = TransformationMode.Encrypt;
 
         public MainForm()
@@ -148,7 +156,37 @@ namespace FileProtector
 
         private void OnBrowseButtonClick(object sender, EventArgs e)
         {
-            
+            SelectedPaths.Clear();
+
+            if (!FolderCheckBox.Checked)
+            {
+                SelectedPaths.AddRange(OpenSelectFilesDialog());
+            } 
+            else
+            {
+                SelectedPaths.Add(OpenSelectFolderDialog());
+            }
+
+            BrowseButton.BackColor = ActivatedBrowseColor;
+            BrowseButton.Text = ActivatedBrowseText;
+        }
+
+        private List<string> OpenSelectFilesDialog()
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+
+            dialog.Multiselect = true;
+            dialog.ShowDialog();
+
+            return dialog.FileNames.ToList();
+        }
+
+        private string OpenSelectFolderDialog()
+        {
+            FolderBrowserDialog dialog = new FolderBrowserDialog();
+
+            dialog.ShowDialog();
+            return dialog.SelectedPath;
         }
     }
 }

@@ -52,8 +52,7 @@
             this.CloseButton = new System.Windows.Forms.Button();
             this.WindowNameLabel = new System.Windows.Forms.Label();
             this.AppVersionLabel = new System.Windows.Forms.Label();
-            this.FolderRadioButton = new System.Windows.Forms.RadioButton();
-            this.FilesRadioButton = new System.Windows.Forms.RadioButton();
+            this.FolderCheckBox = new System.Windows.Forms.CheckBox();
             this.PasswordTextBoxExternalContainer.SuspendLayout();
             this.PasswordTextBoxInternalContainer.SuspendLayout();
             this.ConfirmPasswordTextBoxExternalContainer.SuspendLayout();
@@ -122,7 +121,7 @@
             this.BrowseButton.FlatAppearance.BorderSize = 0;
             this.BrowseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BrowseButton.ForeColor = System.Drawing.Color.White;
-            this.BrowseButton.Location = new System.Drawing.Point(87, 200);
+            this.BrowseButton.Location = new System.Drawing.Point(87, 173);
             this.BrowseButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.BrowseButton.Name = "BrowseButton";
             this.BrowseButton.Size = new System.Drawing.Size(122, 37);
@@ -327,29 +326,16 @@
             this.AppVersionLabel.TabIndex = 24;
             this.AppVersionLabel.Text = "vX.X";
             // 
-            // FolderRadioButton
+            // FolderCheckBox
             // 
-            this.FolderRadioButton.AutoSize = true;
-            this.FolderRadioButton.Location = new System.Drawing.Point(150, 170);
-            this.FolderRadioButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.FolderRadioButton.Name = "FolderRadioButton";
-            this.FolderRadioButton.Size = new System.Drawing.Size(68, 22);
-            this.FolderRadioButton.TabIndex = 26;
-            this.FolderRadioButton.Text = "Folder";
-            this.FolderRadioButton.UseVisualStyleBackColor = true;
-            // 
-            // FilesRadioButton
-            // 
-            this.FilesRadioButton.AutoSize = true;
-            this.FilesRadioButton.Checked = true;
-            this.FilesRadioButton.Location = new System.Drawing.Point(77, 170);
-            this.FilesRadioButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.FilesRadioButton.Name = "FilesRadioButton";
-            this.FilesRadioButton.Size = new System.Drawing.Size(67, 22);
-            this.FilesRadioButton.TabIndex = 25;
-            this.FilesRadioButton.TabStop = true;
-            this.FilesRadioButton.Text = "File(s)";
-            this.FilesRadioButton.UseVisualStyleBackColor = true;
+            this.FolderCheckBox.AutoSize = true;
+            this.FolderCheckBox.Location = new System.Drawing.Point(112, 218);
+            this.FolderCheckBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.FolderCheckBox.Name = "FolderCheckBox";
+            this.FolderCheckBox.Size = new System.Drawing.Size(69, 22);
+            this.FolderCheckBox.TabIndex = 25;
+            this.FolderCheckBox.Text = "Folder";
+            this.FolderCheckBox.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
@@ -359,8 +345,7 @@
             this.BackgroundImage = global::FileProtector.Properties.Resources.background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(900, 650);
-            this.Controls.Add(this.FolderRadioButton);
-            this.Controls.Add(this.FilesRadioButton);
+            this.Controls.Add(this.FolderCheckBox);
             this.Controls.Add(this.AppVersionLabel);
             this.Controls.Add(this.WindowControlPanel);
             this.Controls.Add(this.ConfirmPasswordTextBoxExternalContainer);
@@ -422,7 +407,6 @@
         private Button MinimizeButton;
         private Label AppVersionLabel;
         private PictureBox IconPictureBox;
-        private RadioButton FolderRadioButton;
-        private RadioButton FilesRadioButton;
+        private CheckBox FolderCheckBox;
     }
 }
