@@ -254,7 +254,7 @@ namespace FileProtector
                 return new PasswordsCheckStatus(false, "Passwords not match");
             }
 
-            return new PasswordsCheckStatus(true, string.Empty);
+            return new PasswordsCheckStatus(true, "");
         }
     }
 }
