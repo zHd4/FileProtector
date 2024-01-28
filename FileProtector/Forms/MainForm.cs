@@ -1,6 +1,9 @@
+using FileProtector.Crypto;
+using FileProtector.Exceptions;
 using FileProtector.Models;
 using FileProtector.Utils;
 using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
 namespace FileProtector
 {
@@ -14,6 +17,8 @@ namespace FileProtector
 
         private const int WM_NCLBUTTONDOWN = 0xA1;
         private const int HT_CAPTION = 0x2;
+
+        private const int MIN_PASSWORD_LENGTH = 6;
 
         private const string DefaultBrowseText = "Browse...";
         private const string ActivatedBrowseText = "Other...";
@@ -53,7 +58,7 @@ namespace FileProtector
 
         private void ConfigureMovables(List<Control> movables)
         {
-            movables.ForEach(movable => movable.MouseDown += new MouseEventHandler((sender, e) => 
+            movables.ForEach(movable => movable.MouseDown += new MouseEventHandler((sender, e) =>
             {
                 if (e.Button == MouseButtons.Left)
                 {
@@ -161,7 +166,7 @@ namespace FileProtector
             if (!FolderCheckBox.Checked)
             {
                 SelectedPaths.AddRange(OpenSelectFilesDialog());
-            } 
+            }
             else
             {
                 SelectedPaths.Add(OpenSelectFolderDialog());
@@ -187,6 +192,69 @@ namespace FileProtector
 
             dialog.ShowDialog();
             return dialog.SelectedPath;
+        }
+
+        private void ProceedButton_Click(object sender, EventArgs e)
+        {
+            string password = PasswordTextBox.Text;
+            CryptoService cryptoService = new CryptoService(password);
+
+            if (SelectedPaths.Count > 0)
+            {
+                bool isDirs = (File.GetAttributes(SelectedPaths[0]) & FileAttributes.Directory) == FileAttributes.Directory;
+
+                SelectedPaths.ForEach(path =>
+                {
+                    if (!isDirs)
+                    {
+                        if (!Directory.Exists(path))
+                            throw new FileNotFoundException(path);
+                    }
+                    else
+                    {
+                        if (!File.Exists(path))
+                            throw new FileNotFoundException(path);
+                    }
+                });
+            }
+            else
+            {
+                //Message
+            }
+
+            if (CurrentMode == TransformationMode.Encrypt)
+            {
+                string passwordConfirmation = ConfirmPasswordTextBox.Text;
+
+                PasswordsCheckStatus checkStatus = CheckPasswords(password, passwordConfirmation);
+
+                if (!checkStatus.Success)
+                {
+                    // Message
+                    return;
+                }
+
+                cryptoService.Encrypt(SelectedPaths);
+            }
+            else
+            {
+                cryptoService.Decrypt(SelectedPaths);
+            }
+        }
+
+        private PasswordsCheckStatus CheckPasswords(string password, string passwordConfirmation)
+        {
+            if (password.Length < MIN_PASSWORD_LENGTH)
+            {
+                return new PasswordsCheckStatus(false, "Password must be at least %s characters long");
+            }
+
+            if (password != passwordConfirmation)
+            {
+                return new PasswordsCheckStatus(false, "Passwords not match");
+            }
+
+            return new PasswordsCheckStatus(true, string.Empty);
         }
     }
 }
