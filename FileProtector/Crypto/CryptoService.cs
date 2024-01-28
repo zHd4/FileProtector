@@ -12,6 +12,16 @@ namespace FileProtector.Crypto
             passwordBytes = Encoding.UTF8.GetBytes(password);
         }
 
+        public void Encrypt(List<string> paths)
+        {
+
+        }
+
+        public void Decrypt(List<string> paths)
+        {
+
+        }
+
         public void EncryptFile(string path)
         {
             AesCryptor processor = new AesCryptor(GetKey(), GetIV());
