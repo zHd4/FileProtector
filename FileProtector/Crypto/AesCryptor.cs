@@ -4,21 +4,21 @@ namespace FileProtector.Crypto
 {
     internal class AesCryptor
     {
-        private readonly byte[] key;
-        private readonly byte[] iv;
+        private readonly byte[] Key;
+        private readonly byte[] IV;
 
         public AesCryptor(byte[] key, byte[] iv) 
         {
-            this.key = key;
-            this.iv = iv;
+            Key = key;
+            IV = iv;
         }
 
         public byte[] Encrypt(byte[] data)
         {
             using (Aes aesInsance = Aes.Create())
             {
-                aesInsance.Key = key;
-                aesInsance.IV = iv;
+                aesInsance.Key = Key;
+                aesInsance.IV = IV;
 
                 ICryptoTransform encryptor = aesInsance.CreateEncryptor(aesInsance.Key, aesInsance.IV);
                 byte[] encryptedBytes;
@@ -41,8 +41,8 @@ namespace FileProtector.Crypto
         {
             using (Aes aesInsance = Aes.Create())
             {
-                aesInsance.Key = key;
-                aesInsance.IV = iv;
+                aesInsance.Key = Key;
+                aesInsance.IV = IV;
 
                 ICryptoTransform decryptor = aesInsance.CreateDecryptor(aesInsance.Key, aesInsance.IV);
                 byte[] decryptedBytes;
