@@ -212,11 +212,14 @@ namespace FileProtector
             if (CurrentMode == TransformationMode.Encrypt)
             {
                 string passwordConfirmation = ConfirmPasswordTextBox.Text;
-                PasswordsCheckStatus checkStatus = CheckPasswords(password, passwordConfirmation);
-
-                if (!checkStatus.Success)
+                
+                try
                 {
-                    // Message
+                    CheckPasswords(password, passwordConfirmation);
+                }
+                catch (ArgumentException ex)
+                {
+                    //Message
                     return;
                 }
 
@@ -228,19 +231,19 @@ namespace FileProtector
             }
         }
 
-        private PasswordsCheckStatus CheckPasswords(string password, string passwordConfirmation)
+        private void CheckPasswords(string password, string passwordConfirmation)
         {
             if (password.Length < MIN_PASSWORD_LENGTH)
             {
-                return new PasswordsCheckStatus(false, "Password must be at least %s characters long");
+                throw new ArgumentException(
+                    string.Format("Password must be at least %s characters long", 
+                    MIN_PASSWORD_LENGTH));
             }
 
             if (password != passwordConfirmation)
             {
-                return new PasswordsCheckStatus(false, "Passwords not match");
+                throw new ArgumentException("Passwords not match");
             }
-
-            return new PasswordsCheckStatus(true, "");
         }
 
         private void CheckSelectedPaths()
