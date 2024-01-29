@@ -74,7 +74,7 @@
             ProceedButton.TabIndex = 11;
             ProceedButton.Text = "Encrypt!";
             ProceedButton.UseVisualStyleBackColor = false;
-            ProceedButton.Click += ProceedButton_Click;
+            ProceedButton.Click += OnProceedButtonClick;
             // 
             // ShowPasswordCheckBox
             // 

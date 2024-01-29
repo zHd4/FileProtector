@@ -1,9 +1,7 @@
 using FileProtector.Crypto;
-using FileProtector.Exceptions;
 using FileProtector.Models;
 using FileProtector.Utils;
 using System.Runtime.InteropServices;
-using System.Windows.Forms;
 
 namespace FileProtector
 {
@@ -194,38 +192,26 @@ namespace FileProtector
             return dialog.SelectedPath;
         }
 
-        private void ProceedButton_Click(object sender, EventArgs e)
+        private void OnProceedButtonClick(object sender, EventArgs e)
         {
             string password = PasswordTextBox.Text;
             CryptoService cryptoService = new CryptoService(password);
 
-            if (SelectedPaths.Count > 0)
+            try
             {
-                bool isDirs = (File.GetAttributes(SelectedPaths[0]) & FileAttributes.Directory) == FileAttributes.Directory;
-
-                SelectedPaths.ForEach(path =>
-                {
-                    if (!isDirs)
-                    {
-                        if (!Directory.Exists(path))
-                            throw new FileNotFoundException(path);
-                    }
-                    else
-                    {
-                        if (!File.Exists(path))
-                            throw new FileNotFoundException(path);
-                    }
-                });
+                CheckSelectedPaths();
             }
-            else
+            catch (Exception ex) when (ex is InvalidOperationException || 
+                ex is DirectoryNotFoundException || 
+                ex is FileNotFoundException)
             {
                 //Message
+                return;
             }
 
             if (CurrentMode == TransformationMode.Encrypt)
             {
                 string passwordConfirmation = ConfirmPasswordTextBox.Text;
-
                 PasswordsCheckStatus checkStatus = CheckPasswords(password, passwordConfirmation);
 
                 if (!checkStatus.Success)
@@ -255,6 +241,30 @@ namespace FileProtector
             }
 
             return new PasswordsCheckStatus(true, "");
+        }
+
+        private void CheckSelectedPaths()
+        {
+            if (SelectedPaths.Count == 0)
+            {
+                throw new InvalidOperationException("Please select file(s) or folder");
+            }
+
+            SelectedPaths.ForEach(path => {
+                bool isDir = IsDirectory(path);
+                Func<string, bool> check = isDir ? Directory.Exists : File.Exists;
+
+                if (!check(path))
+                {
+                    string message = "Cannot find: " + path;
+                    throw isDir ? new DirectoryNotFoundException(message) : new FileNotFoundException(message);
+                }
+            });
+        }
+
+        private bool IsDirectory(string path)
+        {
+            return (File.GetAttributes(path) & FileAttributes.Directory) == FileAttributes.Directory;
         }
     }
 }
