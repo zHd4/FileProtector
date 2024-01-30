@@ -17,13 +17,9 @@ namespace FileProtector
         private const int HT_CAPTION = 0x2;
 
         private const int MIN_PASSWORD_LENGTH = 6;
-
-        private const string DefaultBrowseText = "Browse...";
         private const string ActivatedBrowseText = "Other...";
 
-        private readonly Color DefaultBrowseColor = Color.FromArgb(43, 38, 86);
         private readonly Color ActivatedBrowseColor = Color.FromArgb(190, 13, 237);
-
         private readonly Color FieldsTextColor = Color.White;
         private readonly Color FieldsPlaceholderColor = Color.DimGray;
 
