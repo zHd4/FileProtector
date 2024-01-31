@@ -2,6 +2,8 @@
 {
     internal partial class CustomMessageForm : Form
     {
+        private const int MAX_MESSAGE_WIDTH = 240;
+
         public CustomMessageForm(string text)
         {
             InitializeComponent();
@@ -13,9 +15,13 @@
             int messageLineHeight = MessageTextLabel.Height;
             MessageTextLabel.Text = message;
 
-            MessageTextLabel.Location = new Point(
-                (MessagePanel.Width / 2) - (MessageTextLabel.Width / 2),
-                MessageTextLabel.Location.Y);
+            if (MessageTextLabel.Width > MAX_MESSAGE_WIDTH)
+            {
+                int diff = MessageTextLabel.Width - MAX_MESSAGE_WIDTH;
+
+                Width += diff;
+                MessagePanel.Width += diff;
+            }
 
             if (MessageTextLabel.Height > messageLineHeight)
             {
@@ -25,6 +31,14 @@
                 MessagePanel.Height += diff;
                 OkButton.Location = new Point(OkButton.Location.X, OkButton.Location.Y + diff);
             }
+
+            CentralizeControlHorizontal(MessageTextLabel);
+            CentralizeControlHorizontal(OkButton);
+        }
+
+        private void CentralizeControlHorizontal(Control control)
+        {
+            control.Location = new Point((MessagePanel.Width / 2) - (control.Width / 2), control.Location.Y);
         }
 
         private void OnOkButtonClick(object sender, EventArgs e)
