@@ -86,7 +86,7 @@
             ShowPasswordCheckBox.TabIndex = 10;
             ShowPasswordCheckBox.Text = "Show password";
             ShowPasswordCheckBox.UseVisualStyleBackColor = true;
-            ShowPasswordCheckBox.CheckedChanged += ShowPasswordCheckedChanged;
+            ShowPasswordCheckBox.CheckedChanged += OnShowPasswordCheckedChanged;
             // 
             // ConfirmPasswordTextBox
             // 
@@ -101,6 +101,7 @@
             ConfirmPasswordTextBox.Text = "Confirm password";
             ConfirmPasswordTextBox.Enter += OnConfirmPasswordTextBoxEnter;
             ConfirmPasswordTextBox.Leave += OnConfirmPasswordTextBoxLeave;
+            ConfirmPasswordTextBox.TextChanged += OnConfirmPasswordTextBoxTextChanged;
             // 
             // PasswordTextBox
             // 
@@ -115,6 +116,7 @@
             PasswordTextBox.Text = "Password";
             PasswordTextBox.Enter += OnPasswordTextBoxEnter;
             PasswordTextBox.Leave += OnPasswordTextBoxLeave;
+            PasswordTextBox.TextChanged += OnPasswordTextBoxTextChanged;
             // 
             // BrowseButton
             // 

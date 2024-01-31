@@ -62,19 +62,6 @@ namespace FileProtector
             }));
         }
 
-        private void ShowPasswordCheckedChanged(object sender, EventArgs e)
-        {
-            if (PasswordTextBox.ForeColor != FieldsPlaceholderColor)
-            {
-                PasswordTextBox.UseSystemPasswordChar = !ShowPasswordCheckBox.Checked;
-            }
-
-            if (ConfirmPasswordTextBox.ForeColor != FieldsPlaceholderColor)
-            {
-                ConfirmPasswordTextBox.UseSystemPasswordChar = !ShowPasswordCheckBox.Checked;
-            }
-        }
-
         private Point GetShowPasswordLocation()
         {
             Point location = ShowPasswordCheckBox.Location;
@@ -103,7 +90,7 @@ namespace FileProtector
             ProceedButton.Text = "Decrypt!";
         }
 
-        private void OnPasswordFieldEnter(TextBox field)
+        private void OnFieldEnter(TextBox field)
         {
             if (field.ForeColor == FieldsPlaceholderColor)
             {
@@ -113,7 +100,7 @@ namespace FileProtector
             }
         }
 
-        private void OnPasswordFieldLeave(TextBox field, string placeholder)
+        private void OnFieldLeave(TextBox field, string placeholder)
         {
             if (field.Text == "")
             {
@@ -125,22 +112,45 @@ namespace FileProtector
 
         private void OnPasswordTextBoxEnter(object sender, EventArgs e)
         {
-            OnPasswordFieldEnter(PasswordTextBox);
+            OnFieldEnter(PasswordTextBox);
         }
 
         private void OnConfirmPasswordTextBoxEnter(object sender, EventArgs e)
         {
-            OnPasswordFieldEnter(ConfirmPasswordTextBox);
+            OnFieldEnter(ConfirmPasswordTextBox);
         }
 
         private void OnPasswordTextBoxLeave(object sender, EventArgs e)
         {
-            OnPasswordFieldLeave(PasswordTextBox, "Password");
+            OnFieldLeave(PasswordTextBox, "Password");
         }
 
         private void OnConfirmPasswordTextBoxLeave(object sender, EventArgs e)
         {
-            OnPasswordFieldLeave(ConfirmPasswordTextBox, "Confirm password");
+            OnFieldLeave(ConfirmPasswordTextBox, "Confirm password");
+        }
+
+        private void OnPasswordTextBoxTextChanged(object sender, EventArgs e)
+        {
+            PasswordTextBox.UseSystemPasswordChar = !ShowPasswordCheckBox.Checked;
+        }
+
+        private void OnConfirmPasswordTextBoxTextChanged(object sender, EventArgs e)
+        {
+            ConfirmPasswordTextBox.UseSystemPasswordChar = !ShowPasswordCheckBox.Checked;
+        }
+
+        private void OnShowPasswordCheckedChanged(object sender, EventArgs e)
+        {
+            if (PasswordTextBox.ForeColor != FieldsPlaceholderColor)
+            {
+                PasswordTextBox.UseSystemPasswordChar = !ShowPasswordCheckBox.Checked;
+            }
+
+            if (ConfirmPasswordTextBox.ForeColor != FieldsPlaceholderColor)
+            {
+                ConfirmPasswordTextBox.UseSystemPasswordChar = !ShowPasswordCheckBox.Checked;
+            }
         }
 
         private void OnCloseButtonClick(object sender, EventArgs e)
