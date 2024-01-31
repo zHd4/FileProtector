@@ -83,6 +83,7 @@
             this.MinimizeBox = false;
             this.Name = "CustomMessageForm";
             this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.MessagePanel.ResumeLayout(false);
             this.MessagePanel.PerformLayout();
