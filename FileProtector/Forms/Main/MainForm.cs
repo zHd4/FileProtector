@@ -19,10 +19,7 @@ namespace FileProtector
         private const int HT_CAPTION = 0x2;
 
         private const string ActivatedBrowseText = "Other...";
-
         private readonly Color ActivatedBrowseColor = Color.FromArgb(190, 13, 237);
-        private readonly Color FieldsTextColor = Color.White;
-        private readonly Color FieldsPlaceholderColor = Color.DimGray;
 
         private Point ShowPasswordLoacation;
 
@@ -38,9 +35,6 @@ namespace FileProtector
 
             MaximizeBox = false;
             ShowPasswordLoacation = GetShowPasswordLocation();
-
-            PasswordTextBox.ForeColor = FieldsPlaceholderColor;
-            ConfirmPasswordTextBox.ForeColor = FieldsPlaceholderColor;
         }
 
         private List<Control> GetMovables()
@@ -74,8 +68,8 @@ namespace FileProtector
             CurrentMode = TransformationMode.Encrypt;
             ShowPasswordCheckBox.Location = ShowPasswordLoacation;
 
-            ConfirmPasswordTextBoxExternalContainer.Enabled = true;
-            ConfirmPasswordTextBoxExternalContainer.Visible = true;
+            ConfirmPasswordTextBox.Enabled = true;
+            ConfirmPasswordTextBox.Visible = true;
 
             ProceedButton.Text = "Encrypt!";
         }
@@ -84,74 +78,17 @@ namespace FileProtector
         {
             CurrentMode = TransformationMode.Decrypt;
 
-            ConfirmPasswordTextBoxExternalContainer.Enabled = false;
-            ConfirmPasswordTextBoxExternalContainer.Visible = false;
+            ConfirmPasswordTextBox.Enabled = false;
+            ConfirmPasswordTextBox.Visible = false;
 
-            ShowPasswordCheckBox.Location = ConfirmPasswordTextBoxExternalContainer.Location;
+            ShowPasswordCheckBox.Location = ConfirmPasswordTextBox.Location;
             ProceedButton.Text = "Decrypt!";
-        }
-
-        private void OnFieldEnter(TextBox field)
-        {
-            if (field.ForeColor == FieldsPlaceholderColor)
-            {
-                field.Text = "";
-                field.ForeColor = FieldsTextColor;
-                field.UseSystemPasswordChar = true;
-            }
-        }
-
-        private void OnFieldLeave(TextBox field, string placeholder)
-        {
-            if (field.Text == "")
-            {
-                field.Text = placeholder;
-                field.ForeColor = FieldsPlaceholderColor;
-                field.UseSystemPasswordChar = false;
-            }
-        }
-
-        private void OnPasswordTextBoxEnter(object sender, EventArgs e)
-        {
-            OnFieldEnter(PasswordTextBox);
-        }
-
-        private void OnConfirmPasswordTextBoxEnter(object sender, EventArgs e)
-        {
-            OnFieldEnter(ConfirmPasswordTextBox);
-        }
-
-        private void OnPasswordTextBoxLeave(object sender, EventArgs e)
-        {
-            OnFieldLeave(PasswordTextBox, "Password");
-        }
-
-        private void OnConfirmPasswordTextBoxLeave(object sender, EventArgs e)
-        {
-            OnFieldLeave(ConfirmPasswordTextBox, "Confirm password");
-        }
-
-        private void OnPasswordTextBoxTextChanged(object sender, EventArgs e)
-        {
-            PasswordTextBox.UseSystemPasswordChar = !ShowPasswordCheckBox.Checked;
-        }
-
-        private void OnConfirmPasswordTextBoxTextChanged(object sender, EventArgs e)
-        {
-            ConfirmPasswordTextBox.UseSystemPasswordChar = !ShowPasswordCheckBox.Checked;
         }
 
         private void OnShowPasswordCheckedChanged(object sender, EventArgs e)
         {
-            if (PasswordTextBox.ForeColor != FieldsPlaceholderColor)
-            {
-                PasswordTextBox.UseSystemPasswordChar = !ShowPasswordCheckBox.Checked;
-            }
-
-            if (ConfirmPasswordTextBox.ForeColor != FieldsPlaceholderColor)
-            {
-                ConfirmPasswordTextBox.UseSystemPasswordChar = !ShowPasswordCheckBox.Checked;
-            }
+            PasswordTextBox.UseSystemPasswordChar = !ShowPasswordCheckBox.Checked;
+            ConfirmPasswordTextBox.UseSystemPasswordChar = !ShowPasswordCheckBox.Checked;
         }
 
         private void OnCloseButtonClick(object sender, EventArgs e)
