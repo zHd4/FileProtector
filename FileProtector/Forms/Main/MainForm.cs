@@ -68,8 +68,8 @@ namespace FileProtector
             CurrentMode = TransformationMode.Encrypt;
             ShowPasswordCheckBox.Location = ShowPasswordLoacation;
 
-            ConfirmPasswordTextBox.Enabled = true;
-            ConfirmPasswordTextBox.Visible = true;
+            ConfirmPasswordPanel.Enabled = true;
+            ConfirmPasswordPanel.Visible = true;
 
             ProceedButton.Text = "Encrypt!";
         }
@@ -78,10 +78,10 @@ namespace FileProtector
         {
             CurrentMode = TransformationMode.Decrypt;
 
-            ConfirmPasswordTextBox.Enabled = false;
-            ConfirmPasswordTextBox.Visible = false;
+            ConfirmPasswordPanel.Enabled = false;
+            ConfirmPasswordPanel.Visible = false;
 
-            ShowPasswordCheckBox.Location = ConfirmPasswordTextBox.Location;
+            ShowPasswordCheckBox.Location = ConfirmPasswordPanel.Location;
             ProceedButton.Text = "Decrypt!";
         }
 
