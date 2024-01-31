@@ -1,5 +1,6 @@
 using FileProtector.Crypto;
 using FileProtector.Forms.Main;
+using FileProtector.Forms.Message;
 using FileProtector.Models;
 using FileProtector.Utils;
 using System.Runtime.InteropServices;
@@ -193,7 +194,7 @@ namespace FileProtector
                 ex is DirectoryNotFoundException || 
                 ex is FileNotFoundException)
             {
-                //Message
+                CustomMessageBox.Show(ex.Message);
                 return;
             }
 
@@ -207,7 +208,7 @@ namespace FileProtector
                 }
                 catch (ArgumentException ex)
                 {
-                    //Message
+                    CustomMessageBox.Show(ex.Message);
                     return;
                 }
 
