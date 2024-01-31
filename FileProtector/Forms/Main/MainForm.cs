@@ -1,4 +1,5 @@
 using FileProtector.Crypto;
+using FileProtector.Forms.Main;
 using FileProtector.Models;
 using FileProtector.Utils;
 using System.Runtime.InteropServices;
@@ -16,7 +17,6 @@ namespace FileProtector
         private const int WM_NCLBUTTONDOWN = 0xA1;
         private const int HT_CAPTION = 0x2;
 
-        private const int MIN_PASSWORD_LENGTH = 6;
         private const string ActivatedBrowseText = "Other...";
 
         private readonly Color ActivatedBrowseColor = Color.FromArgb(190, 13, 237);
@@ -159,33 +159,15 @@ namespace FileProtector
 
             if (!FolderCheckBox.Checked)
             {
-                SelectedPaths.AddRange(OpenSelectFilesDialog());
+                SelectedPaths.AddRange(FilesManager.OpenSelectFilesDialog());
             }
             else
             {
-                SelectedPaths.Add(OpenSelectFolderDialog());
+                SelectedPaths.Add(FilesManager.OpenSelectFolderDialog());
             }
 
             BrowseButton.BackColor = ActivatedBrowseColor;
             BrowseButton.Text = ActivatedBrowseText;
-        }
-
-        private List<string> OpenSelectFilesDialog()
-        {
-            OpenFileDialog dialog = new OpenFileDialog();
-
-            dialog.Multiselect = true;
-            dialog.ShowDialog();
-
-            return dialog.FileNames.ToList();
-        }
-
-        private string OpenSelectFolderDialog()
-        {
-            FolderBrowserDialog dialog = new FolderBrowserDialog();
-
-            dialog.ShowDialog();
-            return dialog.SelectedPath;
         }
 
         private void OnProceedButtonClick(object sender, EventArgs e)
@@ -195,7 +177,7 @@ namespace FileProtector
 
             try
             {
-                CheckSelectedPaths();
+                CheckUtils.CheckSelectedPaths(SelectedPaths);
             }
             catch (Exception ex) when (ex is InvalidOperationException || 
                 ex is DirectoryNotFoundException || 
@@ -211,7 +193,7 @@ namespace FileProtector
                 
                 try
                 {
-                    CheckPasswords(password, passwordConfirmation);
+                    CheckUtils.CheckPasswords(password, passwordConfirmation);
                 }
                 catch (ArgumentException ex)
                 {
@@ -225,45 +207,6 @@ namespace FileProtector
             {
                 cryptoService.Decrypt(SelectedPaths);
             }
-        }
-
-        private void CheckPasswords(string password, string passwordConfirmation)
-        {
-            if (password.Length < MIN_PASSWORD_LENGTH)
-            {
-                throw new ArgumentException(
-                    string.Format("Password must be at least %s characters long", 
-                    MIN_PASSWORD_LENGTH));
-            }
-
-            if (password != passwordConfirmation)
-            {
-                throw new ArgumentException("Passwords not match");
-            }
-        }
-
-        private void CheckSelectedPaths()
-        {
-            if (SelectedPaths.Count == 0)
-            {
-                throw new InvalidOperationException("Please select file(s) or folder");
-            }
-
-            SelectedPaths.ForEach(path => {
-                bool isDir = IsDirectory(path);
-                Func<string, bool> check = isDir ? Directory.Exists : File.Exists;
-
-                if (!check(path))
-                {
-                    string message = "Cannot find: " + path;
-                    throw isDir ? new DirectoryNotFoundException(message) : new FileNotFoundException(message);
-                }
-            });
-        }
-
-        private bool IsDirectory(string path)
-        {
-            return (File.GetAttributes(path) & FileAttributes.Directory) == FileAttributes.Directory;
         }
     }
 }
