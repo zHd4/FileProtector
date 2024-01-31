@@ -1,6 +1,6 @@
 ﻿namespace FileProtector.Forms.Main
 {
-    internal class CheckUtils
+    internal static class CheckUtils
     {
         private const int MIN_PASSWORD_LENGTH = 6;
 
@@ -9,7 +9,7 @@
             if (password.Length < MIN_PASSWORD_LENGTH)
             {
                 throw new ArgumentException(
-                    string.Format("Password must be at least %s characters long",
+                    string.Format("Password must be at least {0} characters long",
                     MIN_PASSWORD_LENGTH));
             }
 
