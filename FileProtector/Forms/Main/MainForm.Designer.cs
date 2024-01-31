@@ -49,8 +49,12 @@
             this.WindowNameLabel = new System.Windows.Forms.Label();
             this.AppVersionLabel = new System.Windows.Forms.Label();
             this.FolderCheckBox = new System.Windows.Forms.CheckBox();
+            this.PasswordPanel = new System.Windows.Forms.Panel();
+            this.ConfirmPasswordPanel = new System.Windows.Forms.Panel();
             this.WindowControlPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.IconPictureBox)).BeginInit();
+            this.PasswordPanel.SuspendLayout();
+            this.ConfirmPasswordPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // ProceedButton
@@ -86,7 +90,7 @@
             this.ConfirmPasswordTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(38)))), ((int)(((byte)(86)))));
             this.ConfirmPasswordTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.ConfirmPasswordTextBox.ForeColor = System.Drawing.Color.White;
-            this.ConfirmPasswordTextBox.Location = new System.Drawing.Point(577, 258);
+            this.ConfirmPasswordTextBox.Location = new System.Drawing.Point(3, 3);
             this.ConfirmPasswordTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ConfirmPasswordTextBox.Name = "ConfirmPasswordTextBox";
             this.ConfirmPasswordTextBox.PlaceholderText = "Confirm password";
@@ -99,7 +103,7 @@
             this.PasswordTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(38)))), ((int)(((byte)(86)))));
             this.PasswordTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.PasswordTextBox.ForeColor = System.Drawing.Color.White;
-            this.PasswordTextBox.Location = new System.Drawing.Point(577, 233);
+            this.PasswordTextBox.Location = new System.Drawing.Point(3, 3);
             this.PasswordTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.PasswordTextBox.Name = "PasswordTextBox";
             this.PasswordTextBox.PlaceholderText = "Password";
@@ -172,7 +176,7 @@
             // 
             this.Step2DescriptionLabel.AutoSize = true;
             this.Step2DescriptionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Step2DescriptionLabel.Location = new System.Drawing.Point(652, 202);
+            this.Step2DescriptionLabel.Location = new System.Drawing.Point(652, 198);
             this.Step2DescriptionLabel.Name = "Step2DescriptionLabel";
             this.Step2DescriptionLabel.Size = new System.Drawing.Size(106, 17);
             this.Step2DescriptionLabel.TabIndex = 18;
@@ -291,6 +295,24 @@
             this.FolderCheckBox.Text = "Folder";
             this.FolderCheckBox.UseVisualStyleBackColor = true;
             // 
+            // PasswordPanel
+            // 
+            this.PasswordPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(38)))), ((int)(((byte)(86)))));
+            this.PasswordPanel.Controls.Add(this.PasswordTextBox);
+            this.PasswordPanel.Location = new System.Drawing.Point(577, 222);
+            this.PasswordPanel.Name = "PasswordPanel";
+            this.PasswordPanel.Size = new System.Drawing.Size(263, 25);
+            this.PasswordPanel.TabIndex = 26;
+            // 
+            // ConfirmPasswordPanel
+            // 
+            this.ConfirmPasswordPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(38)))), ((int)(((byte)(86)))));
+            this.ConfirmPasswordPanel.Controls.Add(this.ConfirmPasswordTextBox);
+            this.ConfirmPasswordPanel.Location = new System.Drawing.Point(577, 254);
+            this.ConfirmPasswordPanel.Name = "ConfirmPasswordPanel";
+            this.ConfirmPasswordPanel.Size = new System.Drawing.Size(263, 25);
+            this.ConfirmPasswordPanel.TabIndex = 27;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -299,8 +321,8 @@
             this.BackgroundImage = global::FileProtector.Properties.Resources.background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(900, 650);
-            this.Controls.Add(this.ConfirmPasswordTextBox);
-            this.Controls.Add(this.PasswordTextBox);
+            this.Controls.Add(this.ConfirmPasswordPanel);
+            this.Controls.Add(this.PasswordPanel);
             this.Controls.Add(this.FolderCheckBox);
             this.Controls.Add(this.AppVersionLabel);
             this.Controls.Add(this.WindowControlPanel);
@@ -326,6 +348,10 @@
             this.WindowControlPanel.ResumeLayout(false);
             this.WindowControlPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.IconPictureBox)).EndInit();
+            this.PasswordPanel.ResumeLayout(false);
+            this.PasswordPanel.PerformLayout();
+            this.ConfirmPasswordPanel.ResumeLayout(false);
+            this.ConfirmPasswordPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -352,5 +378,7 @@
         private Label AppVersionLabel;
         private PictureBox IconPictureBox;
         private CheckBox FolderCheckBox;
+        private Panel PasswordPanel;
+        private Panel ConfirmPasswordPanel;
     }
 }
