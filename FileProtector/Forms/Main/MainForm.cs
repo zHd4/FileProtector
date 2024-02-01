@@ -121,7 +121,7 @@ namespace FileProtector
         private void OnProceedButtonClick(object sender, EventArgs e)
         {
             string password = PasswordTextBox.Text;
-            CryptoService cryptoService = new CryptoService(password);
+            CryptoWorker worker = new CryptoWorker(password);
 
             try
             {
@@ -149,11 +149,11 @@ namespace FileProtector
                     return;
                 }
 
-                cryptoService.Encrypt(SelectedPaths);
+                worker.Encrypt(SelectedPaths);
             }
             else
             {
-                cryptoService.Decrypt(SelectedPaths);
+                worker.Decrypt(SelectedPaths);
             }
         }
     }
