@@ -5,11 +5,11 @@ namespace FileProtector.Crypto
 {
     public class CryptoWorker
     {
-        private byte[] passwordBytes;
+        private byte[] PasswordBytes;
 
         public CryptoWorker(string password)
         {
-            passwordBytes = Encoding.UTF8.GetBytes(password);
+            PasswordBytes = Encoding.UTF8.GetBytes(password);
         }
 
         public async void Encrypt(List<string> paths)
@@ -53,12 +53,12 @@ namespace FileProtector.Crypto
 
         private byte[] GetKey()
         {
-            return SHA256.Create().ComputeHash(passwordBytes);
+            return SHA256.Create().ComputeHash(PasswordBytes);
         }
 
         private byte[] GetIV()
         {
-            return MD5.Create().ComputeHash(passwordBytes);
+            return MD5.Create().ComputeHash(PasswordBytes);
         }
     }
 }
