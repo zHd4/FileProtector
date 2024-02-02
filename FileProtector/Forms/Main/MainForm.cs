@@ -18,8 +18,8 @@ namespace FileProtector
         private const int WM_NCLBUTTONDOWN = 0xA1;
         private const int HT_CAPTION = 0x2;
 
-        private const string ActivatedBrowseText = "Other...";
-        private readonly Color ActivatedBrowseColor = Color.FromArgb(190, 13, 237);
+        private const string SelectedBrowseText = "Other...";
+        private readonly Color SelectedBrowseColor = Color.FromArgb(190, 13, 237);
 
         private Point ShowPasswordLoacation;
 
@@ -114,8 +114,11 @@ namespace FileProtector
                 SelectedPaths.Add(FilesManager.OpenSelectFolderDialog());
             }
 
-            BrowseButton.BackColor = ActivatedBrowseColor;
-            BrowseButton.Text = ActivatedBrowseText;
+            if (SelectedPaths.Count > 0)
+            {
+                BrowseButton.BackColor = SelectedBrowseColor;
+                BrowseButton.Text = SelectedBrowseText;
+            }
         }
 
         private void OnProceedButtonClick(object sender, EventArgs e)
