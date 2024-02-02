@@ -12,12 +12,12 @@ namespace FileProtector.Crypto
             PasswordBytes = Encoding.UTF8.GetBytes(password);
         }
 
-        public async void Encrypt(List<string> paths)
+        public async void EncryptAsync(List<string> paths)
         {
             await Task.Run(() => DoWork(paths, EncryptFile));
         }
 
-        public async void Decrypt(List<string> paths)
+        public async void DecryptAsync(List<string> paths)
         {
             await Task.Run(() => DoWork(paths, DecryptFile));
         }

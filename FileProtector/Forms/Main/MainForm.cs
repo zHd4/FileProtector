@@ -149,11 +149,11 @@ namespace FileProtector
                     return;
                 }
 
-                worker.Encrypt(SelectedPaths);
+                worker.EncryptAsync(SelectedPaths);
             }
-            else
+            else if (CurrentMode == TransformationMode.Decrypt)
             {
-                worker.Decrypt(SelectedPaths);
+                worker.DecryptAsync(SelectedPaths);
             }
         }
     }
