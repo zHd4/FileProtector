@@ -36,10 +36,5 @@ namespace FileProtector.Utils
                 }
             });
         }
-
-        private static bool IsDirectory(string path)
-        {
-            return (File.GetAttributes(path) & FileAttributes.Directory) == FileAttributes.Directory;
-        }
     }
 }
