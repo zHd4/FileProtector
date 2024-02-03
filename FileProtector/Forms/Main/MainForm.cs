@@ -134,7 +134,7 @@ namespace FileProtector
                 ex is DirectoryNotFoundException || 
                 ex is FileNotFoundException)
             {
-                CustomMessageBox.Show(ex.Message);
+                CustomMessageBox.Show(ex.Message, this);
                 return;
             }
 
@@ -148,7 +148,7 @@ namespace FileProtector
                 }
                 catch (ArgumentException ex)
                 {
-                    CustomMessageBox.Show(ex.Message);
+                    CustomMessageBox.Show(ex.Message, this);
                     return;
                 }
 

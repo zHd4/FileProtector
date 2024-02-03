@@ -4,7 +4,7 @@
     <Compile Update="Forms\Main\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\Message\CustomMessageForm.cs">
+    <Compile Update="Forms\Modal\Message\CustomMessageForm.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

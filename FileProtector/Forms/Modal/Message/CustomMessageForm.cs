@@ -1,13 +1,20 @@
-﻿namespace FileProtector.Forms.Message
+﻿using FileProtector.Utils;
+
+namespace FileProtector.Forms.Message
 {
     internal partial class CustomMessageForm : Form
     {
         private const int MAX_MESSAGE_WIDTH = 240;
 
-        public CustomMessageForm(string text)
+        public CustomMessageForm(string text, Form baseForm)
         {
             InitializeComponent();
             AdaptForMessage(text);
+
+            Point startLocation = ModalUtils.GetModalWindowLocation(baseForm, this);
+
+            Left = startLocation.X;
+            Top = startLocation.Y;
         }
 
         private void AdaptForMessage(string message)
