@@ -1,4 +1,5 @@
 using FileProtector.Crypto;
+using FileProtector.Exceptions;
 using FileProtector.Forms.Main;
 using FileProtector.Forms.Message;
 using FileProtector.Models;
@@ -131,8 +132,7 @@ namespace FileProtector
                 CheckUtils.CheckSelectedPaths(SelectedPaths);
             }
             catch (Exception ex) when (ex is InvalidOperationException || 
-                ex is DirectoryNotFoundException || 
-                ex is FileNotFoundException)
+                ex is PathNotFoundException)
             {
                 CustomMessageBox.Show(ex.Message, this);
                 return;

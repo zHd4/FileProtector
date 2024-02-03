@@ -1,6 +1,8 @@
-﻿namespace FileProtector.Forms.Main
+﻿using FileProtector.Exceptions;
+
+namespace FileProtector.Utils
 {
-    internal static class CheckUtils
+    public static class CheckUtils
     {
         private const int MIN_PASSWORD_LENGTH = 6;
 
@@ -26,14 +28,11 @@
                 throw new InvalidOperationException("Please select file(s) or folder");
             }
 
-            paths.ForEach(path => {
-                bool isDir = IsDirectory(path);
-                Func<string, bool> check = isDir ? Directory.Exists : File.Exists;
-
-                if (!check(path))
+            paths.ForEach(path =>
+            {
+                if (!File.Exists(path) || !Directory.Exists(path))
                 {
-                    string message = "Cannot find: " + path;
-                    throw isDir ? new DirectoryNotFoundException(message) : new FileNotFoundException(message);
+                    throw new PathNotFoundException(string.Format("Cannot find: '{0}'", path));
                 }
             });
         }
