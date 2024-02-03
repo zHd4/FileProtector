@@ -1,6 +1,6 @@
 ﻿namespace FileProtector.Utils
 {
-    public class ModalUtils
+    public static class ModalUtils
     {
         public static Point GetModalWindowLocation(Form baseForm, Form modalForm)
         {
