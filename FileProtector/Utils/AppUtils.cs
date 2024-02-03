@@ -3,7 +3,7 @@ using System.Reflection;
 
 namespace FileProtector.Utils
 {
-    public class AppUtils
+    public static class AppUtils
     {
         public static string FetchVersion()
         {
