@@ -10,15 +10,6 @@ namespace FileProtector
 {
     public partial class MainForm : Form
     {
-        [DllImport("user32.dll")]
-        private static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
-
-        [DllImport("user32.dll")]
-        private static extern bool ReleaseCapture();
-
-        private const int WM_NCLBUTTONDOWN = 0xA1;
-        private const int HT_CAPTION = 0x2;
-
         private const string SelectedBrowseText = "Other...";
         private readonly Color SelectedBrowseColor = Color.FromArgb(190, 13, 237);
 
@@ -48,14 +39,7 @@ namespace FileProtector
 
         private void ConfigureMovables(List<Control> movables)
         {
-            movables.ForEach(movable => movable.MouseDown += new MouseEventHandler((sender, e) =>
-            {
-                if (e.Button == MouseButtons.Left)
-                {
-                    ReleaseCapture();
-                    SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
-                }
-            }));
+            movables.ForEach(movable => movable.MouseDown += AppUtils.GetMoveWindowHandler(Handle));
         }
 
         private Point GetShowPasswordLocation()
