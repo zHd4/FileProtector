@@ -1,10 +1,13 @@
 ﻿using System.Text;
 using System.Security.Cryptography;
+using FileProtector.Models;
 
 namespace FileProtector.Crypto
 {
     public class CryptoWorker
     {
+        public CryptoState State { get; } = new CryptoState();
+
         private byte[] PasswordBytes;
 
         public CryptoWorker(string password)
@@ -14,29 +17,59 @@ namespace FileProtector.Crypto
 
         public async void EncryptAsync(List<string> paths)
         {
-            await Task.Run(() => DoWork(paths, EncryptFile));
+            await Task.Run(() => DoWork(paths, "encrypt", EncryptFile));
         }
 
         public async void DecryptAsync(List<string> paths)
         {
-            await Task.Run(() => DoWork(paths, DecryptFile));
+            await Task.Run(() => DoWork(paths, "decrypt", DecryptFile));
         }
 
-        private void DoWork(List<string> paths, Action<string> transformFunction)
+        private void DoWork(List<string> paths, string workName, Action<string> transformFunction)
         {
-            foreach (string path in paths)
+            List<string> filesPaths = FindAllFiles(paths);
+            State.FilesCount = filesPaths.Count;
+
+            filesPaths.ForEach(path => 
+            {
+                State.Message = string.Format("{0}ing: {1}", Capitalize(workName), path);
+
+                try
+                {
+                    transformFunction(path);
+                    State.TransformedFilesCount += 1;
+                }
+                catch (CryptographicException)
+                {
+                    string message = string.Format("Cannot {0}: {1}", workName, path);
+
+                    State.Message = message;
+                    State.Errors.Add(message);
+                }
+            });
+
+            State.Completed = true;
+        }
+
+        public List<string> FindAllFiles(List<string> paths)
+        {
+            List<string> filesPaths = new List<string>();
+
+
+            paths.ForEach(path =>
             {
                 if (Directory.Exists(path))
                 {
-                    Directory.GetFiles(path, "*.*", SearchOption.AllDirectories)
-                        .ToList()
-                        .ForEach(file => transformFunction(file));
+                    string[] foundFiles = Directory.GetFiles(path, "*.*", SearchOption.AllDirectories);
+                    filesPaths.AddRange(foundFiles.ToList());
                 }
-                else
+                else if (File.Exists(path))
                 {
-                    transformFunction(path);
+                    filesPaths.Add(path);
                 }
-            }
+            });
+
+            return filesPaths;
         }
 
         public void EncryptFile(string path)
@@ -67,6 +100,16 @@ namespace FileProtector.Crypto
         private byte[] GetIV()
         {
             return MD5.Create().ComputeHash(PasswordBytes);
+        }
+
+        private static string Capitalize(string word)
+        {
+            if (string.IsNullOrEmpty(word))
+            {
+                return string.Empty;
+            }
+
+            return char.ToUpper(word[0]) + word.Substring(1);
         }
     }
 }
