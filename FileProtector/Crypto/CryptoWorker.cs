@@ -48,7 +48,15 @@ namespace FileProtector.Crypto
         public void DecryptFile(string path)
         {
             AesCryptor cryptor = new AesCryptor(GetKey(), GetIV());
-            File.WriteAllBytes(path, cryptor.Decrypt(File.ReadAllBytes(path)));
+
+            try
+            {
+                File.WriteAllBytes(path, cryptor.Decrypt(File.ReadAllBytes(path)));
+            }
+            catch (CryptographicException)
+            {
+                throw new CryptographicException("Cannot decrypt: " + path);
+            }
         }
 
         private byte[] GetKey()
