@@ -30,7 +30,7 @@ namespace FileProtector.Utils
 
             paths.ForEach(path =>
             {
-                if (!File.Exists(path) || !Directory.Exists(path))
+                if (!File.Exists(path) && !Directory.Exists(path))
                 {
                     throw new PathNotFoundException(string.Format("Cannot find: '{0}'", path));
                 }
