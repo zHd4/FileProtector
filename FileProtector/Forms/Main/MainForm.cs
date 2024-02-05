@@ -4,7 +4,7 @@ using FileProtector.Forms.Main;
 using FileProtector.Forms.Message;
 using FileProtector.Models;
 using FileProtector.Utils;
-using System.Runtime.InteropServices;
+using System.Security.Cryptography;
 
 namespace FileProtector
 {
@@ -140,7 +140,14 @@ namespace FileProtector
             }
             else if (CurrentMode == TransformationMode.Decrypt)
             {
-                worker.DecryptAsync(SelectedPaths);
+                try
+                {
+                    worker.DecryptAsync(SelectedPaths);
+                }
+                catch (CryptographicException ex)
+                {
+                    CustomMessageBox.Show(ex.Message, this);
+                }
             }
         }
     }
