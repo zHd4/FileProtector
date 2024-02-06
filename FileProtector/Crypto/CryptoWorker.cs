@@ -51,7 +51,7 @@ namespace FileProtector.Crypto
             State.Completed = true;
         }
 
-        public List<string> FindAllFiles(List<string> paths)
+        private List<string> FindAllFiles(List<string> paths)
         {
             List<string> filesPaths = new List<string>();
 
@@ -72,13 +72,13 @@ namespace FileProtector.Crypto
             return filesPaths;
         }
 
-        public void EncryptFile(string path)
+        private void EncryptFile(string path)
         {
             AesCryptor cryptor = new AesCryptor(GetKey(), GetIV());
             File.WriteAllBytes(path, cryptor.Encrypt(File.ReadAllBytes(path)));
         }
 
-        public void DecryptFile(string path)
+        private void DecryptFile(string path)
         {
             AesCryptor cryptor = new AesCryptor(GetKey(), GetIV());
 
