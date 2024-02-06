@@ -39,7 +39,8 @@ namespace FileProtector
 
         private void ConfigureMovables(List<Control> movables)
         {
-            movables.ForEach(movable => movable.MouseDown += AppUtils.GetMoveWindowHandler(Handle));
+            MouseEventHandler moveWindowHandler = AppUtils.GetMoveWindowHandler(Handle);
+            movables.ForEach(movable => movable.MouseDown += moveWindowHandler);
         }
 
         private Point GetShowPasswordLocation()
