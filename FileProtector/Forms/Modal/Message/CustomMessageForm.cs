@@ -15,6 +15,11 @@ namespace FileProtector.Forms.Message
 
             Left = startLocation.X;
             Top = startLocation.Y;
+
+            MouseEventHandler moveWindowHandler = AppUtils.GetMoveWindowHandler(Handle);
+
+            MouseDown += moveWindowHandler;
+            MessagePanel.MouseDown += moveWindowHandler;
         }
 
         private void AdaptForMessage(string message)
