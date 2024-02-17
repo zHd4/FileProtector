@@ -75,10 +75,11 @@
             // ShowPasswordCheckBox
             // 
             this.ShowPasswordCheckBox.AutoSize = true;
+            this.ShowPasswordCheckBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ShowPasswordCheckBox.Location = new System.Drawing.Point(577, 285);
             this.ShowPasswordCheckBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ShowPasswordCheckBox.Name = "ShowPasswordCheckBox";
-            this.ShowPasswordCheckBox.Size = new System.Drawing.Size(134, 22);
+            this.ShowPasswordCheckBox.Size = new System.Drawing.Size(131, 22);
             this.ShowPasswordCheckBox.TabIndex = 10;
             this.ShowPasswordCheckBox.Text = "Show password";
             this.ShowPasswordCheckBox.UseVisualStyleBackColor = true;
@@ -130,6 +131,7 @@
             // 
             this.EncryptRadioButton.AutoSize = true;
             this.EncryptRadioButton.Checked = true;
+            this.EncryptRadioButton.FlatAppearance.BorderSize = 0;
             this.EncryptRadioButton.Location = new System.Drawing.Point(165, 502);
             this.EncryptRadioButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.EncryptRadioButton.Name = "EncryptRadioButton";
@@ -143,6 +145,7 @@
             // DecryptRadioButton
             // 
             this.DecryptRadioButton.AutoSize = true;
+            this.DecryptRadioButton.FlatAppearance.BorderSize = 0;
             this.DecryptRadioButton.Location = new System.Drawing.Point(247, 502);
             this.DecryptRadioButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.DecryptRadioButton.Name = "DecryptRadioButton";
@@ -287,10 +290,11 @@
             // FolderCheckBox
             // 
             this.FolderCheckBox.AutoSize = true;
+            this.FolderCheckBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.FolderCheckBox.Location = new System.Drawing.Point(112, 218);
             this.FolderCheckBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.FolderCheckBox.Name = "FolderCheckBox";
-            this.FolderCheckBox.Size = new System.Drawing.Size(69, 22);
+            this.FolderCheckBox.Size = new System.Drawing.Size(66, 22);
             this.FolderCheckBox.TabIndex = 25;
             this.FolderCheckBox.Text = "Folder";
             this.FolderCheckBox.UseVisualStyleBackColor = true;

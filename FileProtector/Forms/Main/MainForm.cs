@@ -2,6 +2,7 @@ using FileProtector.Crypto;
 using FileProtector.Exceptions;
 using FileProtector.Forms.Main;
 using FileProtector.Forms.Message;
+using FileProtector.Forms.Modal.ProceedCrypto;
 using FileProtector.Models;
 using FileProtector.Utils;
 using System.Security.Cryptography;
@@ -110,7 +111,7 @@ namespace FileProtector
         private void OnProceedButtonClick(object sender, EventArgs e)
         {
             string password = PasswordTextBox.Text;
-            CryptoWorker worker = new CryptoWorker(password);
+            //CryptoWorker worker = new CryptoWorker(password);
 
             try
             {
@@ -122,6 +123,8 @@ namespace FileProtector
                 CustomMessageBox.Show(ex.Message, this);
                 return;
             }
+
+            ProceedCryptoForm cryptoForm = new ProceedCryptoForm(this, CurrentMode, SelectedPaths, password);
 
             if (CurrentMode == TransformationMode.Encrypt)
             {
@@ -137,19 +140,21 @@ namespace FileProtector
                     return;
                 }
 
-                worker.EncryptAsync(SelectedPaths);
+                //worker.EncryptAsync(SelectedPaths);
             }
-            else if (CurrentMode == TransformationMode.Decrypt)
-            {
-                try
-                {
-                    worker.DecryptAsync(SelectedPaths);
-                }
-                catch (CryptographicException ex)
-                {
-                    CustomMessageBox.Show(ex.Message, this);
-                }
-            }
+            //else if (CurrentMode == TransformationMode.Decrypt)
+            //{
+            //    try
+            //    {
+            //        worker.DecryptAsync(SelectedPaths);
+            //    }
+            //    catch (CryptographicException ex)
+            //    {
+            //        CustomMessageBox.Show(ex.Message, this);
+            //    }
+            //}
+
+            cryptoForm.ShowDialog();
         }
     }
 }
