@@ -34,5 +34,10 @@ namespace FileProtector.Forms.Modal.ProceedCrypto
             MouseDown += moveWindowHandler;
             EncryptionPanel.MouseDown += moveWindowHandler;
         }
+
+        private void CancelEncryptionButton_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

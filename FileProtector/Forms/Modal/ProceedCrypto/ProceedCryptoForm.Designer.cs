@@ -29,86 +29,87 @@
         private void InitializeComponent()
         {
             this.EncryptionPanel = new System.Windows.Forms.Panel();
-            this.ShowPasswordCheckBox = new System.Windows.Forms.CheckBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.OkButton = new System.Windows.Forms.Button();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.label1 = new System.Windows.Forms.Label();
+            this.HideFilesCheckBox = new System.Windows.Forms.CheckBox();
+            this.CancelEncryptionButton = new System.Windows.Forms.Button();
+            this.StartEncryptionButton = new System.Windows.Forms.Button();
+            this.EncryptListView = new System.Windows.Forms.ListView();
+            this.EncryptionWarningLabel = new System.Windows.Forms.Label();
             this.EncryptionPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // EncryptionPanel
             // 
             this.EncryptionPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(16)))), ((int)(((byte)(41)))));
-            this.EncryptionPanel.Controls.Add(this.ShowPasswordCheckBox);
-            this.EncryptionPanel.Controls.Add(this.button1);
-            this.EncryptionPanel.Controls.Add(this.OkButton);
-            this.EncryptionPanel.Controls.Add(this.listView1);
-            this.EncryptionPanel.Controls.Add(this.label1);
+            this.EncryptionPanel.Controls.Add(this.HideFilesCheckBox);
+            this.EncryptionPanel.Controls.Add(this.CancelEncryptionButton);
+            this.EncryptionPanel.Controls.Add(this.StartEncryptionButton);
+            this.EncryptionPanel.Controls.Add(this.EncryptListView);
+            this.EncryptionPanel.Controls.Add(this.EncryptionWarningLabel);
             this.EncryptionPanel.Location = new System.Drawing.Point(3, 20);
             this.EncryptionPanel.Name = "EncryptionPanel";
             this.EncryptionPanel.Size = new System.Drawing.Size(455, 277);
             this.EncryptionPanel.TabIndex = 0;
             // 
-            // ShowPasswordCheckBox
+            // HideFilesCheckBox
             // 
-            this.ShowPasswordCheckBox.AutoSize = true;
-            this.ShowPasswordCheckBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ShowPasswordCheckBox.Location = new System.Drawing.Point(98, 185);
-            this.ShowPasswordCheckBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.ShowPasswordCheckBox.Name = "ShowPasswordCheckBox";
-            this.ShowPasswordCheckBox.Size = new System.Drawing.Size(84, 22);
-            this.ShowPasswordCheckBox.TabIndex = 11;
-            this.ShowPasswordCheckBox.Text = "Hide files";
-            this.ShowPasswordCheckBox.UseVisualStyleBackColor = true;
+            this.HideFilesCheckBox.AutoSize = true;
+            this.HideFilesCheckBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.HideFilesCheckBox.Location = new System.Drawing.Point(98, 185);
+            this.HideFilesCheckBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.HideFilesCheckBox.Name = "HideFilesCheckBox";
+            this.HideFilesCheckBox.Size = new System.Drawing.Size(84, 22);
+            this.HideFilesCheckBox.TabIndex = 11;
+            this.HideFilesCheckBox.Text = "Hide files";
+            this.HideFilesCheckBox.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // CancelEncryptionButton
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(38)))), ((int)(((byte)(86)))));
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(234, 212);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(122, 38);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "Cancel";
-            this.button1.UseVisualStyleBackColor = false;
+            this.CancelEncryptionButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(38)))), ((int)(((byte)(86)))));
+            this.CancelEncryptionButton.FlatAppearance.BorderSize = 0;
+            this.CancelEncryptionButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CancelEncryptionButton.ForeColor = System.Drawing.Color.White;
+            this.CancelEncryptionButton.Location = new System.Drawing.Point(234, 212);
+            this.CancelEncryptionButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.CancelEncryptionButton.Name = "CancelEncryptionButton";
+            this.CancelEncryptionButton.Size = new System.Drawing.Size(122, 38);
+            this.CancelEncryptionButton.TabIndex = 10;
+            this.CancelEncryptionButton.Text = "Cancel";
+            this.CancelEncryptionButton.UseVisualStyleBackColor = false;
+            this.CancelEncryptionButton.Click += new System.EventHandler(this.CancelEncryptionButton_Click);
             // 
-            // OkButton
+            // StartEncryptionButton
             // 
-            this.OkButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(38)))), ((int)(((byte)(86)))));
-            this.OkButton.FlatAppearance.BorderSize = 0;
-            this.OkButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.OkButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(45)))), ((int)(((byte)(0)))));
-            this.OkButton.Location = new System.Drawing.Point(98, 212);
-            this.OkButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.OkButton.Name = "OkButton";
-            this.OkButton.Size = new System.Drawing.Size(122, 38);
-            this.OkButton.TabIndex = 9;
-            this.OkButton.Text = "Continue";
-            this.OkButton.UseVisualStyleBackColor = false;
+            this.StartEncryptionButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(38)))), ((int)(((byte)(86)))));
+            this.StartEncryptionButton.FlatAppearance.BorderSize = 0;
+            this.StartEncryptionButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.StartEncryptionButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(45)))), ((int)(((byte)(0)))));
+            this.StartEncryptionButton.Location = new System.Drawing.Point(98, 212);
+            this.StartEncryptionButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.StartEncryptionButton.Name = "StartEncryptionButton";
+            this.StartEncryptionButton.Size = new System.Drawing.Size(122, 38);
+            this.StartEncryptionButton.TabIndex = 9;
+            this.StartEncryptionButton.Text = "Continue";
+            this.StartEncryptionButton.UseVisualStyleBackColor = false;
             // 
-            // listView1
+            // EncryptListView
             // 
-            this.listView1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(38)))), ((int)(((byte)(86)))));
-            this.listView1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.listView1.ForeColor = System.Drawing.Color.White;
-            this.listView1.Location = new System.Drawing.Point(98, 66);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(258, 114);
-            this.listView1.TabIndex = 1;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.EncryptListView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(38)))), ((int)(((byte)(86)))));
+            this.EncryptListView.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.EncryptListView.ForeColor = System.Drawing.Color.White;
+            this.EncryptListView.Location = new System.Drawing.Point(98, 66);
+            this.EncryptListView.Name = "EncryptListView";
+            this.EncryptListView.Size = new System.Drawing.Size(258, 114);
+            this.EncryptListView.TabIndex = 1;
+            this.EncryptListView.UseCompatibleStateImageBehavior = false;
             // 
-            // label1
+            // EncryptionWarningLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(98, 31);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(258, 18);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "This action will encrypt following paths";
+            this.EncryptionWarningLabel.AutoSize = true;
+            this.EncryptionWarningLabel.Location = new System.Drawing.Point(98, 31);
+            this.EncryptionWarningLabel.Name = "EncryptionWarningLabel";
+            this.EncryptionWarningLabel.Size = new System.Drawing.Size(258, 18);
+            this.EncryptionWarningLabel.TabIndex = 0;
+            this.EncryptionWarningLabel.Text = "This action will encrypt following paths";
             // 
             // ProceedCryptoForm
             // 
@@ -136,10 +137,10 @@
         #endregion
 
         private Panel EncryptionPanel;
-        private Label label1;
-        private ListView listView1;
-        private Button button1;
-        private Button OkButton;
-        private CheckBox ShowPasswordCheckBox;
+        private Label EncryptionWarningLabel;
+        private ListView EncryptListView;
+        private Button CancelEncryptionButton;
+        private Button StartEncryptionButton;
+        private CheckBox HideFilesCheckBox;
     }
 }
