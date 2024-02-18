@@ -57,9 +57,9 @@
             this.HideFilesCheckBox.Location = new System.Drawing.Point(98, 185);
             this.HideFilesCheckBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.HideFilesCheckBox.Name = "HideFilesCheckBox";
-            this.HideFilesCheckBox.Size = new System.Drawing.Size(84, 22);
+            this.HideFilesCheckBox.Size = new System.Drawing.Size(189, 22);
             this.HideFilesCheckBox.TabIndex = 11;
-            this.HideFilesCheckBox.Text = "Hide files";
+            this.HideFilesCheckBox.Text = "Hide files after encryption";
             this.HideFilesCheckBox.UseVisualStyleBackColor = true;
             // 
             // CancelEncryptionButton

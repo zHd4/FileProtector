@@ -1,6 +1,7 @@
 ﻿using System.Text;
 using System.Security.Cryptography;
 using FileProtector.Models;
+using FileProtector.Utils;
 
 namespace FileProtector.Crypto
 {
@@ -27,10 +28,9 @@ namespace FileProtector.Crypto
 
         private void DoWork(List<string> paths, string workName, Action<string> transformFunction)
         {
-            List<string> filesPaths = FindAllFiles(paths);
-            State.FilesCount = filesPaths.Count;
+            State.FilesCount = paths.Count;
 
-            filesPaths.ForEach(path => 
+            paths.ForEach(path => 
             {
                 State.Message = string.Format("{0}ing: {1}", Capitalize(workName), path);
 
@@ -49,27 +49,6 @@ namespace FileProtector.Crypto
             });
 
             State.Completed = true;
-        }
-
-        private List<string> FindAllFiles(List<string> paths)
-        {
-            List<string> filesPaths = new List<string>();
-
-
-            paths.ForEach(path =>
-            {
-                if (Directory.Exists(path))
-                {
-                    string[] foundFiles = Directory.GetFiles(path, "*.*", SearchOption.AllDirectories);
-                    filesPaths.AddRange(foundFiles.ToList());
-                }
-                else if (File.Exists(path))
-                {
-                    filesPaths.Add(path);
-                }
-            });
-
-            return filesPaths;
         }
 
         private void EncryptFile(string path)

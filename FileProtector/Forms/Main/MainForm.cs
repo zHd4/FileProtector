@@ -1,6 +1,5 @@
 using FileProtector.Crypto;
 using FileProtector.Exceptions;
-using FileProtector.Forms.Main;
 using FileProtector.Forms.Message;
 using FileProtector.Forms.Modal.ProceedCrypto;
 using FileProtector.Models;
@@ -94,11 +93,11 @@ namespace FileProtector
 
             if (!FolderCheckBox.Checked)
             {
-                SelectedPaths.AddRange(FilesManager.OpenSelectFilesDialog());
+                SelectedPaths.AddRange(FSUtils.OpenSelectFilesDialog());
             }
             else
             {
-                SelectedPaths.Add(FilesManager.OpenSelectFolderDialog());
+                SelectedPaths.Add(FSUtils.OpenSelectFolderDialog());
             }
 
             if (SelectedPaths.Count > 0)

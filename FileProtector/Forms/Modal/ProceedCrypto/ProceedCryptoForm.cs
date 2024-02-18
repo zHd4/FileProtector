@@ -19,7 +19,7 @@ namespace FileProtector.Forms.Modal.ProceedCrypto
             InitializeComponent();
 
             Mode = mode;
-            Paths = paths;
+            Paths = FSUtils.FindAllFiles(paths);
             Password = password;
 
             Size = FormSize;
@@ -33,6 +33,13 @@ namespace FileProtector.Forms.Modal.ProceedCrypto
 
             MouseDown += moveWindowHandler;
             EncryptionPanel.MouseDown += moveWindowHandler;
+
+            LoadPaths();
+        }
+
+        private void LoadPaths()
+        {
+            Paths.ForEach(path => EncryptListView.Items.Add(path));
         }
 
         private void CancelEncryptionButton_Click(object sender, EventArgs e)
