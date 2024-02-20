@@ -5,8 +5,6 @@ namespace FileProtector.Forms.Modal.ProceedCrypto
 {
     public partial class CryptoConfirmationForm : Form
     {
-        Size FormSize = new Size(661, 500);
-
         TransformationMode Mode;
         List<string> Paths;
         string Password;
@@ -22,8 +20,6 @@ namespace FileProtector.Forms.Modal.ProceedCrypto
             Paths = FSUtils.FindAllFiles(paths);
             Password = password;
 
-            Size = FormSize;
-
             Point startLocation = ModalUtils.GetModalWindowLocation(baseForm, this);
 
             Left = startLocation.X;
@@ -34,12 +30,27 @@ namespace FileProtector.Forms.Modal.ProceedCrypto
             MouseDown += moveWindowHandler;
             EncryptionPanel.MouseDown += moveWindowHandler;
 
+            MoveComponents();
             LoadPaths();
         }
 
         private void LoadPaths()
         {
             Paths.ForEach(path => EncryptListBox.Items.Add(path));
+        }
+
+        private void MoveComponents()
+        {
+            if (Mode == TransformationMode.Decrypt)
+            {
+                HideFilesCheckBox.Enabled = false;
+                HideFilesCheckBox.Visible = false;
+            }
+        }
+
+        private void ContinueButton_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void CancelEncryptionButton_Click(object sender, EventArgs e)
