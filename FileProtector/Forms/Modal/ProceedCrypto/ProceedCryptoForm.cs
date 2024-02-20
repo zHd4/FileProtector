@@ -5,7 +5,7 @@ namespace FileProtector.Forms.Modal.ProceedCrypto
 {
     public partial class ProceedCryptoForm : Form
     {
-        Size FormSize = new Size(461, 300);
+        Size FormSize = new Size(661, 500);
 
         TransformationMode Mode;
         List<string> Paths;
@@ -39,7 +39,7 @@ namespace FileProtector.Forms.Modal.ProceedCrypto
 
         private void LoadPaths()
         {
-            Paths.ForEach(path => EncryptListView.Items.Add(path));
+            Paths.ForEach(path => EncryptListBox.Items.Add(path));
         }
 
         private void CancelEncryptionButton_Click(object sender, EventArgs e)
