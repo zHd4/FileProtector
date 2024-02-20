@@ -1,14 +1,15 @@
-﻿using FileProtector.Models;
+﻿using FileProtector.Crypto;
+using FileProtector.Models;
 using FileProtector.Utils;
 
 namespace FileProtector.Forms.Modal.ProceedCrypto
 {
     public partial class ProceedCryptoForm : Form
     {
+        CryptoWorker Worker;
         TransformationMode Mode;
-        List<string> Paths;
 
-        string Password;
+        List<string> Paths;
         bool HideFiles;
 
         public ProceedCryptoForm(Form baseForm,
@@ -19,9 +20,10 @@ namespace FileProtector.Forms.Modal.ProceedCrypto
         {
             InitializeComponent();
 
+            Worker = new CryptoWorker(password);
             Mode = mode;
+
             Paths = FSUtils.FindAllFiles(paths);
-            Password = password;
             HideFiles = hideFiles;
 
             Point startLocation = ModalUtils.GetModalWindowLocation(baseForm, this);
@@ -45,11 +47,23 @@ namespace FileProtector.Forms.Modal.ProceedCrypto
             }
 
             StatusLabel.Text = "";
+
+            Worker.EncryptAsync(Paths);
+            FormUpdateTimer.Start();
         }
 
         private void OnFormUpdateTimerTick(object sender, EventArgs e)
         {
+            CryptoState state = Worker.State;
 
+            if (state.Completed)
+            {
+                FormUpdateTimer.Stop();
+                return;
+            }
+
+            StatusLabel.Text = state.Message;
+            MainProgressBar.Value = (int)(state.TransformedFilesCount / state.FilesCount * 100);
         }
 
         private void OnFormClosing(object sender, FormClosingEventArgs e)
