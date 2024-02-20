@@ -51,7 +51,7 @@
             // EncryptListBox
             // 
             this.EncryptListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(38)))), ((int)(((byte)(86)))));
-            this.EncryptListBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.EncryptListBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.EncryptListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.EncryptListBox.ForeColor = System.Drawing.Color.White;
             this.EncryptListBox.FormattingEnabled = true;
@@ -60,7 +60,7 @@
             this.EncryptListBox.Location = new System.Drawing.Point(3, 3);
             this.EncryptListBox.Name = "EncryptListBox";
             this.EncryptListBox.SelectionMode = System.Windows.Forms.SelectionMode.None;
-            this.EncryptListBox.Size = new System.Drawing.Size(649, 386);
+            this.EncryptListBox.Size = new System.Drawing.Size(649, 384);
             this.EncryptListBox.Sorted = true;
             this.EncryptListBox.TabIndex = 12;
             // 
