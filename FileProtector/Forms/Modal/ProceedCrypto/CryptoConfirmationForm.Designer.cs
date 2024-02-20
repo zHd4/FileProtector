@@ -1,6 +1,6 @@
 ﻿namespace FileProtector.Forms.Modal.ProceedCrypto
 {
-    partial class ProceedCryptoForm
+    partial class CryptoConfirmationForm
     {
         /// <summary>
         /// Required designer variable.
@@ -105,7 +105,7 @@
             this.StartEncryptionButton.Text = "Continue";
             this.StartEncryptionButton.UseVisualStyleBackColor = false;
             // 
-            // ProceedCryptoForm
+            // CryptoConfirmationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -118,7 +118,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "ProceedCryptoForm";
+            this.Name = "CryptoConfirmationForm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;

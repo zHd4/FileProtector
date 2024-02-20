@@ -123,7 +123,7 @@ namespace FileProtector
                 return;
             }
 
-            ProceedCryptoForm cryptoForm = new ProceedCryptoForm(this, CurrentMode, SelectedPaths, password);
+            CryptoConfirmationForm cryptoForm = new CryptoConfirmationForm(this, CurrentMode, SelectedPaths, password);
 
             if (CurrentMode == TransformationMode.Encrypt)
             {

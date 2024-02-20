@@ -3,7 +3,7 @@ using FileProtector.Utils;
 
 namespace FileProtector.Forms.Modal.ProceedCrypto
 {
-    public partial class ProceedCryptoForm : Form
+    public partial class CryptoConfirmationForm : Form
     {
         Size FormSize = new Size(661, 500);
 
@@ -11,7 +11,7 @@ namespace FileProtector.Forms.Modal.ProceedCrypto
         List<string> Paths;
         string Password;
 
-        public ProceedCryptoForm(Form baseForm,
+        public CryptoConfirmationForm(Form baseForm,
             TransformationMode mode, 
             List<string> paths, 
             string password)
