@@ -2,11 +2,11 @@
 
 namespace FileProtector.Forms.Message
 {
-    internal partial class CustomMessageForm : Form
+    internal partial class ModalMessageForm : Form
     {
         private const int MAX_MESSAGE_WIDTH = 240;
 
-        public CustomMessageForm(string text, Form baseForm)
+        public ModalMessageForm(string text, Form baseForm)
         {
             InitializeComponent();
             AdaptForMessage(text);

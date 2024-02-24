@@ -1,10 +1,10 @@
 ﻿namespace FileProtector.Forms.Message
 {
-    public static class CustomMessageBox
+    public static class ModalMessageBox
     {
         public static void Show(string text, Form baseForm)
         {
-            new CustomMessageForm(text, baseForm).ShowDialog();
+            new ModalMessageForm(text, baseForm).ShowDialog();
         }
     }
 }

@@ -119,7 +119,7 @@ namespace FileProtector
             catch (Exception ex) when (ex is InvalidOperationException || 
                 ex is PathNotFoundException)
             {
-                CustomMessageBox.Show(ex.Message, this);
+                ModalMessageBox.Show(ex.Message, this);
                 return;
             }
 
@@ -135,7 +135,7 @@ namespace FileProtector
                 }
                 catch (ArgumentException ex)
                 {
-                    CustomMessageBox.Show(ex.Message, this);
+                    ModalMessageBox.Show(ex.Message, this);
                     return;
                 }
 
