@@ -1,4 +1,5 @@
 ﻿using FileProtector.Crypto;
+using FileProtector.Forms.Message;
 using FileProtector.Models;
 using FileProtector.Utils;
 
@@ -6,6 +7,8 @@ namespace FileProtector.Forms.Modal.ProceedCrypto
 {
     public partial class ProceedCryptoForm : Form
     {
+        bool AllowClosing = false;
+
         CryptoWorker Worker;
         TransformationMode Mode;
 
@@ -44,11 +47,14 @@ namespace FileProtector.Forms.Modal.ProceedCrypto
             if (Mode == TransformationMode.Decrypt)
             {
                 NameLabel.Text = "Decryption";
+                Worker.DecryptAsync(Paths);
+            }
+            else
+            {
+                Worker.EncryptAsync(Paths);
             }
 
             StatusLabel.Text = "";
-
-            Worker.EncryptAsync(Paths);
             FormUpdateTimer.Start();
         }
 
@@ -59,16 +65,26 @@ namespace FileProtector.Forms.Modal.ProceedCrypto
             if (state.Completed)
             {
                 FormUpdateTimer.Stop();
+                MainProgressBar.Value = 100;
+
+                ModalMessageBox.Show("Completed!", this);
+                AllowClosing = true;
+
+                Close();
                 return;
             }
 
             StatusLabel.Text = state.Message;
-            MainProgressBar.Value = (int)(state.TransformedFilesCount / state.FilesCount * 100);
+
+            long i = (state.TransformedFilesCount / state.FilesCount * 100);
+            int iv = (int)i;
+
+            MainProgressBar.Value = iv;
         }
 
         private void OnFormClosing(object sender, FormClosingEventArgs e)
         {
-            e.Cancel = true;
+            e.Cancel = !AllowClosing;
         }
     }
 }
