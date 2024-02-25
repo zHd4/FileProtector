@@ -54,6 +54,7 @@ namespace FileProtector.Forms.Modal.ProceedCrypto
             ProceedCryptoForm form = new ProceedCryptoForm(this, Mode, Paths, Password, hideFiles);
 
             form.ShowDialog();
+            Close();
         }
 
         private void CancelEncryptionButton_Click(object sender, EventArgs e)
