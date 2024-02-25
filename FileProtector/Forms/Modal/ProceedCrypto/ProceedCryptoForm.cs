@@ -75,11 +75,7 @@ namespace FileProtector.Forms.Modal.ProceedCrypto
             }
 
             StatusLabel.Text = state.Message;
-
-            long i = (state.TransformedFilesCount / state.FilesCount * 100);
-            int iv = (int)i;
-
-            MainProgressBar.Value = iv;
+            MainProgressBar.Value = (int)(state.TransformedFilesCount / state.FilesCount * 100);
         }
 
         private void OnFormClosing(object sender, FormClosingEventArgs e)
