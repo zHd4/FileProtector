@@ -10,9 +10,6 @@ namespace FileProtector
 {
     public partial class MainForm : Form
     {
-        private const string SelectedBrowseText = "Other...";
-        private readonly Color SelectedBrowseColor = Color.FromArgb(190, 13, 237);
-
         private Point ShowPasswordLoacation;
 
         private List<string> SelectedPaths = new List<string>();
@@ -41,6 +38,17 @@ namespace FileProtector
         {
             MouseEventHandler moveWindowHandler = AppUtils.GetMoveWindowHandler(Handle);
             movables.ForEach(movable => movable.MouseDown += moveWindowHandler);
+        }
+
+        private void Reset()
+        {
+            BrowseButton.Text = "Browse...";
+            BrowseButton.BackColor = Color.FromArgb(43, 38, 86);
+
+            FolderCheckBox.Checked = false;
+
+            PasswordTextBox.Text = string.Empty;
+            ConfirmPasswordTextBox.Text = string.Empty;
         }
 
         private Point GetShowPasswordLocation()
@@ -102,15 +110,14 @@ namespace FileProtector
 
             if (SelectedPaths.Count > 0)
             {
-                BrowseButton.BackColor = SelectedBrowseColor;
-                BrowseButton.Text = SelectedBrowseText;
+                BrowseButton.BackColor = Color.FromArgb(190, 13, 237);
+                BrowseButton.Text = "Other...";
             }
         }
 
         private void OnProceedButtonClick(object sender, EventArgs e)
         {
             string password = PasswordTextBox.Text;
-            //CryptoWorker worker = new CryptoWorker(password);
 
             try
             {
@@ -139,21 +146,10 @@ namespace FileProtector
                     return;
                 }
 
-                //worker.EncryptAsync(SelectedPaths);
             }
-            //else if (CurrentMode == TransformationMode.Decrypt)
-            //{
-            //    try
-            //    {
-            //        worker.DecryptAsync(SelectedPaths);
-            //    }
-            //    catch (CryptographicException ex)
-            //    {
-            //        CustomMessageBox.Show(ex.Message, this);
-            //    }
-            //}
 
             cryptoForm.ShowDialog();
+            Reset();
         }
     }
 }
