@@ -28,47 +28,47 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.EncryptionPanel = new System.Windows.Forms.Panel();
-            this.EncryptListBox = new System.Windows.Forms.ListBox();
+            this.MainPanel = new System.Windows.Forms.Panel();
+            this.PathsListBox = new System.Windows.Forms.ListBox();
             this.HideFilesCheckBox = new System.Windows.Forms.CheckBox();
             this.CancelButton = new System.Windows.Forms.Button();
             this.ContinueButton = new System.Windows.Forms.Button();
-            this.EncryptionPanel.SuspendLayout();
+            this.MainPanel.SuspendLayout();
             this.SuspendLayout();
             // 
-            // EncryptionPanel
+            // MainPanel
             // 
-            this.EncryptionPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(16)))), ((int)(((byte)(41)))));
-            this.EncryptionPanel.Controls.Add(this.EncryptListBox);
-            this.EncryptionPanel.Controls.Add(this.HideFilesCheckBox);
-            this.EncryptionPanel.Controls.Add(this.CancelButton);
-            this.EncryptionPanel.Controls.Add(this.ContinueButton);
-            this.EncryptionPanel.Location = new System.Drawing.Point(3, 20);
-            this.EncryptionPanel.Name = "EncryptionPanel";
-            this.EncryptionPanel.Size = new System.Drawing.Size(655, 477);
-            this.EncryptionPanel.TabIndex = 0;
+            this.MainPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(16)))), ((int)(((byte)(41)))));
+            this.MainPanel.Controls.Add(this.PathsListBox);
+            this.MainPanel.Controls.Add(this.HideFilesCheckBox);
+            this.MainPanel.Controls.Add(this.CancelButton);
+            this.MainPanel.Controls.Add(this.ContinueButton);
+            this.MainPanel.Location = new System.Drawing.Point(3, 20);
+            this.MainPanel.Name = "MainPanel";
+            this.MainPanel.Size = new System.Drawing.Size(655, 439);
+            this.MainPanel.TabIndex = 0;
             // 
-            // EncryptListBox
+            // PathsListBox
             // 
-            this.EncryptListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(38)))), ((int)(((byte)(86)))));
-            this.EncryptListBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.EncryptListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.EncryptListBox.ForeColor = System.Drawing.Color.White;
-            this.EncryptListBox.FormattingEnabled = true;
-            this.EncryptListBox.HorizontalScrollbar = true;
-            this.EncryptListBox.ItemHeight = 16;
-            this.EncryptListBox.Location = new System.Drawing.Point(3, 3);
-            this.EncryptListBox.Name = "EncryptListBox";
-            this.EncryptListBox.SelectionMode = System.Windows.Forms.SelectionMode.None;
-            this.EncryptListBox.Size = new System.Drawing.Size(649, 384);
-            this.EncryptListBox.Sorted = true;
-            this.EncryptListBox.TabIndex = 12;
+            this.PathsListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(38)))), ((int)(((byte)(86)))));
+            this.PathsListBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.PathsListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.PathsListBox.ForeColor = System.Drawing.Color.White;
+            this.PathsListBox.FormattingEnabled = true;
+            this.PathsListBox.HorizontalScrollbar = true;
+            this.PathsListBox.ItemHeight = 16;
+            this.PathsListBox.Location = new System.Drawing.Point(3, 3);
+            this.PathsListBox.Name = "PathsListBox";
+            this.PathsListBox.SelectionMode = System.Windows.Forms.SelectionMode.None;
+            this.PathsListBox.Size = new System.Drawing.Size(649, 384);
+            this.PathsListBox.Sorted = true;
+            this.PathsListBox.TabIndex = 12;
             // 
             // HideFilesCheckBox
             // 
             this.HideFilesCheckBox.AutoSize = true;
             this.HideFilesCheckBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.HideFilesCheckBox.Location = new System.Drawing.Point(9, 396);
+            this.HideFilesCheckBox.Location = new System.Drawing.Point(368, 402);
             this.HideFilesCheckBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.HideFilesCheckBox.Name = "HideFilesCheckBox";
             this.HideFilesCheckBox.Size = new System.Drawing.Size(189, 22);
@@ -82,7 +82,7 @@
             this.CancelButton.FlatAppearance.BorderSize = 0;
             this.CancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CancelButton.ForeColor = System.Drawing.Color.White;
-            this.CancelButton.Location = new System.Drawing.Point(184, 426);
+            this.CancelButton.Location = new System.Drawing.Point(181, 394);
             this.CancelButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.CancelButton.Name = "CancelButton";
             this.CancelButton.Size = new System.Drawing.Size(172, 38);
@@ -97,7 +97,7 @@
             this.ContinueButton.FlatAppearance.BorderSize = 0;
             this.ContinueButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ContinueButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(45)))), ((int)(((byte)(0)))));
-            this.ContinueButton.Location = new System.Drawing.Point(6, 426);
+            this.ContinueButton.Location = new System.Drawing.Point(3, 394);
             this.ContinueButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ContinueButton.Name = "ContinueButton";
             this.ContinueButton.Size = new System.Drawing.Size(172, 38);
@@ -111,8 +111,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(61)))), ((int)(((byte)(127)))));
-            this.ClientSize = new System.Drawing.Size(661, 500);
-            this.Controls.Add(this.EncryptionPanel);
+            this.ClientSize = new System.Drawing.Size(661, 462);
+            this.Controls.Add(this.MainPanel);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -123,18 +123,18 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.EncryptionPanel.ResumeLayout(false);
-            this.EncryptionPanel.PerformLayout();
+            this.MainPanel.ResumeLayout(false);
+            this.MainPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private Panel EncryptionPanel;
+        private Panel MainPanel;
         private Button CancelButton;
         private Button ContinueButton;
         private CheckBox HideFilesCheckBox;
-        private ListBox EncryptListBox;
+        private ListBox PathsListBox;
     }
 }

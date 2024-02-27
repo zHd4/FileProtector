@@ -28,7 +28,7 @@ namespace FileProtector.Forms.Modal.ProceedCrypto
             MouseEventHandler moveWindowHandler = AppUtils.GetMoveWindowHandler(Handle);
 
             MouseDown += moveWindowHandler;
-            EncryptionPanel.MouseDown += moveWindowHandler;
+            MainPanel.MouseDown += moveWindowHandler;
 
             MoveComponents();
             LoadPaths();
@@ -36,7 +36,7 @@ namespace FileProtector.Forms.Modal.ProceedCrypto
 
         private void LoadPaths()
         {
-            Paths.ForEach(path => EncryptListBox.Items.Add(path));
+            Paths.ForEach(path => PathsListBox.Items.Add(path));
         }
 
         private void MoveComponents()
