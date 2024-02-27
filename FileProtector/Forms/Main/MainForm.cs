@@ -1,10 +1,8 @@
-using FileProtector.Crypto;
 using FileProtector.Exceptions;
 using FileProtector.Forms.Message;
 using FileProtector.Forms.Modal.ProceedCrypto;
 using FileProtector.Models;
 using FileProtector.Utils;
-using System.Security.Cryptography;
 
 namespace FileProtector
 {
@@ -42,6 +40,8 @@ namespace FileProtector
 
         private void Reset()
         {
+            SelectedPaths.Clear();
+
             BrowseButton.Text = "Browse...";
             BrowseButton.BackColor = Color.FromArgb(43, 38, 86);
 
