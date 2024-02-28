@@ -130,7 +130,7 @@ namespace FileProtector
                 return;
             }
 
-            CryptoConfirmationForm cryptoForm = new CryptoConfirmationForm(this, CurrentMode, SelectedPaths, password);
+            CryptoConfirmationForm confirmationForm = new CryptoConfirmationForm(this, CurrentMode, SelectedPaths, password);
 
             if (CurrentMode == TransformationMode.Encrypt)
             {
@@ -148,8 +148,12 @@ namespace FileProtector
 
             }
 
-            cryptoForm.ShowDialog();
-            Reset();
+            DialogResult dialogResult = confirmationForm.ShowDialog();
+            
+            if (dialogResult == DialogResult.OK)
+            {
+                Reset();
+            }
         }
     }
 }

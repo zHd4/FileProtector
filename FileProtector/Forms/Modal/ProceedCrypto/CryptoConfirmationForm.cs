@@ -50,6 +50,8 @@ namespace FileProtector.Forms.Modal.ProceedCrypto
 
         private void ContinueButton_Click(object sender, EventArgs e)
         {
+            DialogResult = DialogResult.OK;
+
             bool hideFiles = HideFilesCheckBox.Checked;
             ProceedCryptoForm form = new ProceedCryptoForm(this, Mode, Paths, Password, hideFiles);
 
