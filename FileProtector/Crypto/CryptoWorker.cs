@@ -1,7 +1,6 @@
 ﻿using System.Text;
 using System.Security.Cryptography;
 using FileProtector.Models;
-using FileProtector.Utils;
 
 namespace FileProtector.Crypto
 {
@@ -39,9 +38,9 @@ namespace FileProtector.Crypto
                     transformFunction(path);
                     State.TransformedFilesCount += 1;
                 }
-                catch (CryptographicException)
+                catch (Exception e)
                 {
-                    string message = string.Format("Cannot {0}: {1}", workName, path);
+                    string message = string.Format("Cannot {0}: {1}", workName, Decapitalize(e.Message));
 
                     State.Message = message;
                     State.Errors.Add(message);
@@ -81,14 +80,24 @@ namespace FileProtector.Crypto
             return MD5.Create().ComputeHash(PasswordBytes);
         }
 
-        private static string Capitalize(string word)
+        private static string Capitalize(string text)
         {
-            if (string.IsNullOrEmpty(word))
+            if (string.IsNullOrEmpty(text))
             {
                 return string.Empty;
             }
 
-            return char.ToUpper(word[0]) + word.Substring(1);
+            return char.ToUpper(text[0]) + text.Substring(1);
+        }
+
+        private static string Decapitalize(string text)
+        {
+            if (string.IsNullOrEmpty(text))
+            {
+                return string.Empty;
+            }
+
+            return char.ToLower(text[0]) + text.Substring(1);
         }
     }
 }
