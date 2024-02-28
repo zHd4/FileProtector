@@ -14,11 +14,11 @@ namespace FileProtector.Forms.Modal.ProceedCrypto
             List<string> paths, 
             string password)
         {
-            InitializeComponent();
-
             Mode = mode;
             Paths = FSUtils.FindAllFiles(paths);
             Password = password;
+
+            InitializeComponent();
 
             Point startLocation = ModalUtils.GetModalWindowLocation(baseForm, this);
 
