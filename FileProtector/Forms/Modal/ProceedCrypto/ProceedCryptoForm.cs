@@ -21,13 +21,13 @@ namespace FileProtector.Forms.Modal.ProceedCrypto
             string password,
             bool hideFiles)
         {
-            InitializeComponent();
-
             Worker = new CryptoWorker(password);
             Mode = mode;
 
             Paths = FSUtils.FindAllFiles(paths);
             HideFiles = hideFiles;
+
+            InitializeComponent();
 
             Point startLocation = ModalUtils.GetModalWindowLocation(baseForm, this);
 
