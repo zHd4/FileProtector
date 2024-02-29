@@ -67,7 +67,16 @@ namespace FileProtector.Forms.Modal.ProceedCrypto
                 FormUpdateTimer.Stop();
                 MainProgressBar.Value = 100;
 
-                ModalMessageBox.Show("Completed!", this);
+                if (state.Errors.Count > 0)
+                {
+                    CryptoErrorsForm errorsForm = new CryptoErrorsForm(this, state.Errors);
+                    errorsForm.ShowDialog();
+                }
+                else
+                {
+                    ModalMessageBox.Show("Completed successfully!", this);
+                }
+
                 AllowClosing = true;
 
                 Close();
