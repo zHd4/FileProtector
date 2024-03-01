@@ -57,6 +57,12 @@ namespace FileProtector
             return new Point(location.X, location.Y);
         }
 
+        private void StartCryptoProccess(TransformationMode mode, List<string> paths, string password, bool hideFiles)
+        {
+            ProceedCryptoForm form = new ProceedCryptoForm(this, mode, paths, password, hideFiles);
+            form.ShowDialog();
+        }
+
         private void OnEncryptRadioCheckedChanged(object sender, EventArgs e)
         {
             CurrentMode = TransformationMode.Encrypt;
@@ -130,7 +136,7 @@ namespace FileProtector
                 return;
             }
 
-            CryptoConfirmationForm confirmationForm = new CryptoConfirmationForm(this, CurrentMode, SelectedPaths, password);
+            CryptoConfirmationForm confirmationForm = new CryptoConfirmationForm(this, CurrentMode, SelectedPaths);
 
             if (CurrentMode == TransformationMode.Encrypt)
             {
@@ -152,6 +158,7 @@ namespace FileProtector
             
             if (dialogResult == DialogResult.OK)
             {
+                StartCryptoProccess(CurrentMode, SelectedPaths, password, confirmationForm.HideFiles);
                 Reset();
             }
         }
