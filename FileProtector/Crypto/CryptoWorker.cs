@@ -17,12 +17,12 @@ namespace FileProtector.Crypto
 
         public async void EncryptAsync(List<string> paths)
         {
-            await Task.Run(() => DoWork(paths, "encrypt", EncryptFile));
+            await Task.Run(() => DoWork(paths, "Encrypt", EncryptFile));
         }
 
         public async void DecryptAsync(List<string> paths)
         {
-            await Task.Run(() => DoWork(paths, "decrypt", DecryptFile));
+            await Task.Run(() => DoWork(paths, "Decrypt", DecryptFile));
         }
 
         private void DoWork(List<string> paths, string workName, Action<string> transformFunction)
@@ -31,7 +31,7 @@ namespace FileProtector.Crypto
 
             paths.ForEach(path => 
             {
-                State.Message = string.Format("{0}ing: {1}", Capitalize(workName), path);
+                State.Message = string.Format("{0}ing: {1}", workName, path);
 
                 try
                 {
@@ -40,10 +40,8 @@ namespace FileProtector.Crypto
                 }
                 catch (Exception e)
                 {
-                    string message = string.Format("Cannot {0}: {1}", workName, Decapitalize(e.Message));
-
-                    State.Message = message;
-                    State.Errors.Add(message);
+                    State.Message = e.Message;
+                    State.Errors.Add(e.Message);
                 }
             });
 
