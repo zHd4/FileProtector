@@ -1,4 +1,5 @@
-﻿using FileProtector.Utils;
+﻿using FileProtector.Models;
+using FileProtector.Utils;
 
 namespace FileProtector.Forms.Modal.ProceedCrypto
 {
@@ -6,7 +7,7 @@ namespace FileProtector.Forms.Modal.ProceedCrypto
     {
         List<string> Errors;
 
-        public CryptoErrorsForm(Form baseForm, List<string> errors)
+        public CryptoErrorsForm(Form baseForm, TransformationMode mode, List<string> errors)
         {
             Errors = errors;
             InitializeComponent();
@@ -21,11 +22,20 @@ namespace FileProtector.Forms.Modal.ProceedCrypto
             MouseDown += moveWindowHandler;
             MainPanel.MouseDown += moveWindowHandler;
 
-            LoadErrors();
+            Prepare(mode);
         }
 
-        private void LoadErrors()
+        private void Prepare(TransformationMode mode)
         {
+            if (mode == TransformationMode.Encrypt)
+            {
+                FormLabel.Text = "Encryption " + FormLabel.Text;
+            }
+            else if (mode == TransformationMode.Decrypt)
+            {
+                FormLabel.Text = "Decryption " + FormLabel.Text;
+            }
+
             Errors.ForEach(error => ErrorsListBox.Items.Add(error));
         }
 

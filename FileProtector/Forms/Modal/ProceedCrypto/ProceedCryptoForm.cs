@@ -12,7 +12,6 @@ namespace FileProtector.Forms.Modal.ProceedCrypto
         CryptoWorker Worker;
         TransformationMode Mode;
 
-        List<string> Paths;
         bool HideFiles;
 
         public ProceedCryptoForm(Form baseForm,
@@ -23,8 +22,6 @@ namespace FileProtector.Forms.Modal.ProceedCrypto
         {
             Worker = new CryptoWorker(password);
             Mode = mode;
-
-            Paths = FSUtils.FindAllFiles(paths);
             HideFiles = hideFiles;
 
             InitializeComponent();
@@ -39,22 +36,25 @@ namespace FileProtector.Forms.Modal.ProceedCrypto
             MouseDown += moveWindowHandler;
             MainPanel.MouseDown += moveWindowHandler;
 
-            Prepare();
+            Run(paths);
         }
 
-        private void Prepare()
+        private void Run(List<string> paths)
         {
-            if (Mode == TransformationMode.Decrypt)
+            StatusLabel.Text = "";
+
+            if (Mode == TransformationMode.Encrypt)
+            {
+                NameLabel.Text = "Encryption";
+                Worker.EncryptAsync(paths);
+            }
+            else if (Mode == TransformationMode.Decrypt)
             {
                 NameLabel.Text = "Decryption";
-                Worker.DecryptAsync(Paths);
+                Worker.DecryptAsync(paths);
+                
             }
-            else
-            {
-                Worker.EncryptAsync(Paths);
-            }
-
-            StatusLabel.Text = "";
+            
             FormUpdateTimer.Start();
         }
 
@@ -69,7 +69,7 @@ namespace FileProtector.Forms.Modal.ProceedCrypto
 
                 if (state.Errors.Count > 0)
                 {
-                    CryptoErrorsForm errorsForm = new CryptoErrorsForm(this, state.Errors);
+                    CryptoErrorsForm errorsForm = new CryptoErrorsForm(this, Mode, state.Errors);
                     errorsForm.ShowDialog();
                 }
                 else
