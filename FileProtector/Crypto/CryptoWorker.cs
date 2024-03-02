@@ -10,9 +10,12 @@ namespace FileProtector.Crypto
 
         private byte[] PasswordBytes;
 
-        public CryptoWorker(string password)
+        private bool HideFiles;
+
+        public CryptoWorker(string password, bool hideFiles=false)
         {
             PasswordBytes = Encoding.UTF8.GetBytes(password);
+            HideFiles = hideFiles;
         }
 
         public async void EncryptAsync(List<string> paths)
@@ -52,6 +55,11 @@ namespace FileProtector.Crypto
         {
             AesCryptor cryptor = new AesCryptor(GetKey(), GetIV());
             File.WriteAllBytes(path, cryptor.Encrypt(File.ReadAllBytes(path)));
+
+            if (HideFiles)
+            {
+                File.SetAttributes(path, File.GetAttributes(path) | FileAttributes.Hidden);
+            }
         }
 
         private void DecryptFile(string path)
@@ -61,6 +69,12 @@ namespace FileProtector.Crypto
             try
             {
                 File.WriteAllBytes(path, cryptor.Decrypt(File.ReadAllBytes(path)));
+
+                if ((File.GetAttributes(path) & FileAttributes.Hidden) == FileAttributes.Hidden)
+                {
+                    FileInfo fileInfo = new FileInfo(path);
+                    fileInfo.Attributes &= ~FileAttributes.Hidden;
+                }
             }
             catch (CryptographicException)
             {
