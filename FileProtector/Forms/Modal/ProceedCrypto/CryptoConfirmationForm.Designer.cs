@@ -75,6 +75,7 @@
             this.HideFilesCheckBox.TabIndex = 11;
             this.HideFilesCheckBox.Text = "Hide files after encryption";
             this.HideFilesCheckBox.UseVisualStyleBackColor = true;
+            this.HideFilesCheckBox.CheckedChanged += new System.EventHandler(this.OnHideFilesCheckBoxCheckedChanged);
             // 
             // CancelButton
             // 
@@ -104,7 +105,7 @@
             this.ContinueButton.TabIndex = 9;
             this.ContinueButton.Text = "Continue";
             this.ContinueButton.UseVisualStyleBackColor = false;
-            this.ContinueButton.Click += new System.EventHandler(this.ContinueButton_Click);
+            this.ContinueButton.Click += new System.EventHandler(this.OnContinueButtonClick);
             // 
             // CryptoConfirmationForm
             // 

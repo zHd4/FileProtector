@@ -5,7 +5,7 @@ namespace FileProtector.Forms.Modal.ProceedCrypto
 {
     public partial class CryptoConfirmationForm : Form
     {
-        public bool HideFiles { get; } = false;
+        public bool HideFiles { get; set; } = false;
 
         TransformationMode Mode;
         List<string> Paths;
@@ -47,7 +47,12 @@ namespace FileProtector.Forms.Modal.ProceedCrypto
             }
         }
 
-        private void ContinueButton_Click(object sender, EventArgs e)
+        private void OnHideFilesCheckBoxCheckedChanged(object sender, EventArgs e)
+        {
+            HideFiles = HideFilesCheckBox.Checked;
+        }
+
+        private void OnContinueButtonClick(object sender, EventArgs e)
         {
             DialogResult = DialogResult.OK;
             Close();
