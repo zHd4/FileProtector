@@ -62,10 +62,13 @@ namespace FileProtector.Forms.Modal.ProceedCrypto
         {
             CryptoState state = Worker.State;
 
+            MainProgressBar.Maximum = (int)state.FilesCount;
+            MainProgressBar.Value = (int)state.TransformedFilesCount;
+
             if (state.Completed)
             {
                 FormUpdateTimer.Stop();
-                MainProgressBar.Value = 100;
+                MainProgressBar.Value = MainProgressBar.Maximum;
 
                 if (state.Errors.Count > 0)
                 {
@@ -84,7 +87,6 @@ namespace FileProtector.Forms.Modal.ProceedCrypto
             }
 
             StatusLabel.Text = state.Message;
-            MainProgressBar.Value = (int)(state.TransformedFilesCount / state.FilesCount * 100);
         }
 
         private void OnFormClosing(object sender, FormClosingEventArgs e)
