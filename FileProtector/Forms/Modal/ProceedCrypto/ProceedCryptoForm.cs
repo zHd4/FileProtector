@@ -45,12 +45,12 @@ namespace FileProtector.Forms.Modal.ProceedCrypto
 
             if (Mode == TransformationMode.Encrypt)
             {
-                NameLabel.Text = "Encryption";
+                NameLabel.Text = "Encrypting";
                 Worker.EncryptAsync(paths);
             }
             else if (Mode == TransformationMode.Decrypt)
             {
-                NameLabel.Text = "Decryption";
+                NameLabel.Text = "Decrypting";
                 Worker.DecryptAsync(paths);
                 
             }

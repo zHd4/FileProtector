@@ -51,9 +51,10 @@
             // StatusLabel
             // 
             this.StatusLabel.AutoSize = true;
+            this.StatusLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.StatusLabel.Location = new System.Drawing.Point(9, 39);
             this.StatusLabel.Name = "StatusLabel";
-            this.StatusLabel.Size = new System.Drawing.Size(48, 18);
+            this.StatusLabel.Size = new System.Drawing.Size(39, 15);
             this.StatusLabel.TabIndex = 2;
             this.StatusLabel.Text = "status";
             // 

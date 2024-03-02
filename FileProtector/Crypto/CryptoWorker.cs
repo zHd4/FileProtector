@@ -31,7 +31,7 @@ namespace FileProtector.Crypto
 
             paths.ForEach(path => 
             {
-                State.Message = string.Format("{0}ing: {1}", workName, path);
+                State.Message = path;
 
                 try
                 {
