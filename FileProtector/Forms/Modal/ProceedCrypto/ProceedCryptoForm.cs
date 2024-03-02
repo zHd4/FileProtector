@@ -12,17 +12,14 @@ namespace FileProtector.Forms.Modal.ProceedCrypto
         CryptoWorker Worker;
         TransformationMode Mode;
 
-        bool HideFiles;
-
         public ProceedCryptoForm(Form baseForm,
             TransformationMode mode,
             List<string> paths,
             string password,
             bool hideFiles)
         {
-            Worker = new CryptoWorker(password);
+            Worker = new CryptoWorker(password, hideFiles);
             Mode = mode;
-            HideFiles = hideFiles;
 
             InitializeComponent();
 
