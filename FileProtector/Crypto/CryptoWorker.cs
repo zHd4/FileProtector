@@ -77,25 +77,5 @@ namespace FileProtector.Crypto
         {
             return MD5.Create().ComputeHash(PasswordBytes);
         }
-
-        private static string Capitalize(string text)
-        {
-            if (string.IsNullOrEmpty(text))
-            {
-                return string.Empty;
-            }
-
-            return char.ToUpper(text[0]) + text.Substring(1);
-        }
-
-        private static string Decapitalize(string text)
-        {
-            if (string.IsNullOrEmpty(text))
-            {
-                return string.Empty;
-            }
-
-            return char.ToLower(text[0]) + text.Substring(1);
-        }
     }
 }
