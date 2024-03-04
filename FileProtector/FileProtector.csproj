@@ -13,7 +13,17 @@
     <RepositoryUrl>https://github.com/zHd4/FileProtector</RepositoryUrl>
     <AssemblyVersion>2.3</AssemblyVersion>
     <FileVersion>2.3</FileVersion>
+    <VersionPrefix>2.3</VersionPrefix>
     <ApplicationIcon>icon.ico</ApplicationIcon>
+    <SignAssembly>False</SignAssembly>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>none</DebugType>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DebugType>none</DebugType>
   </PropertyGroup>
 
   <ItemGroup>
