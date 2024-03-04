@@ -20,15 +20,15 @@ namespace FileProtector.Crypto
 
         public async void EncryptAsync(List<string> paths)
         {
-            await Task.Run(() => DoWork(paths, "Encrypt", EncryptFile));
+            await Task.Run(() => DoWork(paths, EncryptFile));
         }
 
         public async void DecryptAsync(List<string> paths)
         {
-            await Task.Run(() => DoWork(paths, "Decrypt", DecryptFile));
+            await Task.Run(() => DoWork(paths, DecryptFile));
         }
 
-        private void DoWork(List<string> paths, string workName, Action<string> transformFunction)
+        private void DoWork(List<string> paths, Action<string> transformFunction)
         {
             State.FilesCount = paths.Count;
 
