@@ -60,7 +60,7 @@ namespace FileProtector.Forms.Modal.ProceedCrypto
             CryptoState state = Worker.State;
 
             MainProgressBar.Maximum = (int)state.FilesCount;
-            MainProgressBar.Value = (int)state.TransformedFilesCount;
+            MainProgressBar.Value = (int)state.PassedFilesCount;
 
             if (state.Completed)
             {

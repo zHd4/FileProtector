@@ -39,13 +39,14 @@ namespace FileProtector.Crypto
                 try
                 {
                     transformFunction(path);
-                    State.TransformedFilesCount += 1;
                 }
                 catch (Exception e)
                 {
                     State.Message = e.Message;
                     State.Errors.Add(e.Message);
                 }
+
+                State.PassedFilesCount += 1;
             });
 
             State.Completed = true;
