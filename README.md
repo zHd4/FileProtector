@@ -8,3 +8,11 @@
 <div align="center" style="margin-top: 50px;">
     <img alt="Screenshot" src=".screenshots/screenshot1.png">
 </div>
+
+<h1></h1>
+
+<p>
+  <b>Latest version: 2.3</b>
+
+  <a href="https://github.com/zHd4/FileProtector/releases/download/2.3/FileProtector_v2.3.zip">Download</a>
+</p>
